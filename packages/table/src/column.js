@@ -1,12 +1,11 @@
-
+import Cell from "./cell"
 
 export default {
   name: "DuiTableColumn",
 
   provide () {
     return {
-      $xecolumn: this,
-      $xegrid: null
+      $duicolumn: this,
     }
   },
   inject: {
@@ -25,7 +24,8 @@ export default {
   },
 
   created(){
-    console.log(this.$duitable)
+    this.columnConfig = this.createColumn(this.$duitable, this)
+    console.log(this.columnConfig)
   },
 
   mounted(){
@@ -34,7 +34,9 @@ export default {
 
   render(h) {
     return h('div', this.$slots.default)
-  }
+  },
+
+  methods: Cell
 };
 
 

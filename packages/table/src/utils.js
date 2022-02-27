@@ -1,4 +1,5 @@
-
+/* eslint-disable */
+import { ColumnInfo } from './columnInfo'
 
 /**
   * 获取一个全局唯一标识
@@ -24,7 +25,7 @@ function isColumnInfo(column) {
 }
 
 function getColumnConfig ($duitable, _vm, options) {
-  return isColumnInfo(_vm) ? _vm : new ColumnInfo($xetable, _vm, options)
+  return isColumnInfo(_vm) ? _vm : new ColumnInfo($duitable, _vm, options)
 }
 
 export {
