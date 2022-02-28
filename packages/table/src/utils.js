@@ -33,10 +33,20 @@ function assemColumn(_vm){
   $duitable.staticColumns.splice([].indexOf.call($duitable.$refs.hideColumn.children, $el), 0, columnConfig)
 }
 
+// 获取所有的列，排除分组
+function getColumnList (columns) {
+  const result = []
+  columns.forEach(column => {
+    result.push(...(column.children && column.children.length ? getColumnList(column.children) : [column]))
+  })
+  return result
+}
+
 export {
   uniqueId,
   isFunction,
   getFuncText,
   getColumnConfig,
-  assemColumn
+  assemColumn,
+  getColumnList
 }

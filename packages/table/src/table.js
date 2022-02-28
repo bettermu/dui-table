@@ -61,6 +61,10 @@ export default {
 
 		const { data } = Object.assign(this,{
 			tZindex: 0,
+			// 存放横向 X 虚拟滚动相关的信息
+      scrollXStore: {},
+      // 存放纵向 Y 虚拟滚动相关信息
+      scrollYStore: {},
 			// 表格宽度
       tableWidth: 0,
       // 表格高度
@@ -78,9 +82,21 @@ export default {
       tableFullColumn: [],
 			// 渲染所有列
       visibleColumn: [],
+
+			// 缓存数据集
+      fullAllDataRowMap: new Map(),
+      fullAllDataRowIdData: {},
+      fullDataRowMap: new Map(),
+      fullDataRowIdData: {},
+      fullColumnMap: new Map(),
+      fullColumnIdData: {},
+      fullColumnFieldData: {}
 		})
 
+
 		this.tableData = data || []
+
+		this.loadTableData(data).then(()=>{})
 	},
 	components:{
 		DuiTableBody,
