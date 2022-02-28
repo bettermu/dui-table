@@ -1,4 +1,5 @@
 import Cell from "./cell"
+import { assemColumn } from "./utils";
 
 export default {
   name: "DuiTableColumn",
@@ -12,6 +13,9 @@ export default {
     $duitable: {
       default: null
     },
+    $duicolumn: {
+      default: null
+    }
   },
 
   props: {
@@ -25,11 +29,11 @@ export default {
 
   created(){
     this.columnConfig = this.createColumn(this.$duitable, this)
-    console.log(this.columnConfig)
+    //console.log(this.columnConfig)
   },
 
   mounted(){
-    console.log(this.$slots)
+    assemColumn(this)
   },
 
   render(h) {

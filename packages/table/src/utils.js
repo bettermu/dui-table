@@ -27,10 +27,16 @@ function isColumnInfo(column) {
 function getColumnConfig ($duitable, _vm, options) {
   return isColumnInfo(_vm) ? _vm : new ColumnInfo($duitable, _vm, options)
 }
+// 组装列配置
+function assemColumn(_vm){
+  const { $el, $duitable, $duicolumn, columnConfig } = _vm
+  $duitable.staticColumns.splice([].indexOf.call($duitable.$refs.hideColumn.children, $el), 0, columnConfig)
+}
 
 export {
   uniqueId,
   isFunction,
   getFuncText,
-  getColumnConfig
+  getColumnConfig,
+  assemColumn
 }
