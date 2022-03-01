@@ -1,4 +1,7 @@
 /* eslint-disable */
+import VXETable from './v-x-e-table'
+import GlobalConfig from './v-x-e-table/src/conf'
+import DUtils from './tools/d-utils.umd.min'
 
 import { getColumnList } from "./utils"
 
@@ -87,5 +90,24 @@ export default {
                 }
             })
         }
-    }
+    },
+
+
+
+
+
+
+    preventEvent(evnt, type, args, next, end) {
+        const evntList = VXETable.interceptor.get(type)
+        let rest
+        if (!evntList.some(func => func(Object.assign({ $grid: this.$xegrid, $table: this, $event: evnt }, args)) === false)) {
+            if (next) {
+                rest = next()
+            }
+        }
+        if (end) {
+            end()
+        }
+        return rest
+    },
 }
