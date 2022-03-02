@@ -53,21 +53,21 @@ export const UtilTools = {
     },
     // 组装列配置
     assemColumn(_vm) {
-        const { $el, $duitable, $xecolumn, columnConfig } = _vm
-        const groupConfig = $xecolumn ? $xecolumn.columnConfig : null
+        const { $el, $duitable, $duicolumn, columnConfig } = _vm
+        const groupConfig = $duicolumn ? $duicolumn.columnConfig : null
         columnConfig.slots = _vm.$scopedSlots
         if (groupConfig) {
             if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
-                if ($xecolumn.$options._componentTag === 'vxe-table-column') {
-                    //errLog('vxe.error.groupTag', [`<vxe-table-colgroup title=${$xecolumn.title} ...>`, `<vxe-table-column title=${$xecolumn.title} ...>`])
-                } else if ($xecolumn.$options._componentTag === 'vxe-column') {
-                    //warnLog('vxe.error.groupTag', [`<vxe-colgroup title=${$xecolumn.title} ...>`, `<vxe-column title=${$xecolumn.title} ...>`])
+                if ($duicolumn.$options._componentTag === 'vxe-table-column') {
+                    //errLog('vxe.error.groupTag', [`<vxe-table-colgroup title=${$duicolumn.title} ...>`, `<vxe-table-column title=${$duicolumn.title} ...>`])
+                } else if ($duicolumn.$options._componentTag === 'vxe-column') {
+                    //warnLog('vxe.error.groupTag', [`<vxe-colgroup title=${$duicolumn.title} ...>`, `<vxe-column title=${$duicolumn.title} ...>`])
                 }
             }
             if (!groupConfig.children) {
                 groupConfig.children = []
             }
-            groupConfig.children.splice([].indexOf.call($xecolumn.$el.children, $el), 0, columnConfig)
+            groupConfig.children.splice([].indexOf.call($duicolumn.$el.children, $el), 0, columnConfig)
         } else {
             $duitable.staticColumns.splice([].indexOf.call($duitable.$refs.hideColumn.children, $el), 0, columnConfig)
         }

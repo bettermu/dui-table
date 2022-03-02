@@ -21,6 +21,10 @@
     height: $vxe-table-row-height-mini;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .dui-table-slots,
 .dui-table--file-form {
     display: none;
