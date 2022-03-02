@@ -53,7 +53,7 @@ export const UtilTools = {
     },
     // 组装列配置
     assemColumn(_vm) {
-        const { $el, $xetable, $xecolumn, columnConfig } = _vm
+        const { $el, $duitable, $xecolumn, columnConfig } = _vm
         const groupConfig = $xecolumn ? $xecolumn.columnConfig : null
         columnConfig.slots = _vm.$scopedSlots
         if (groupConfig) {
@@ -69,13 +69,13 @@ export const UtilTools = {
             }
             groupConfig.children.splice([].indexOf.call($xecolumn.$el.children, $el), 0, columnConfig)
         } else {
-            $xetable.staticColumns.splice([].indexOf.call($xetable.$refs.hideColumn.children, $el), 0, columnConfig)
+            $duitable.staticColumns.splice([].indexOf.call($duitable.$refs.hideColumn.children, $el), 0, columnConfig)
         }
     },
     // 销毁列
     destroyColumn(_vm) {
-        const { $xetable, columnConfig } = _vm
-        const matchObj = DUtils.findTree($xetable.staticColumns, column => column === columnConfig)
+        const { $duitable, columnConfig } = _vm
+        const matchObj = DUtils.findTree($duitable.staticColumns, column => column === columnConfig)
         if (matchObj) {
             matchObj.items.splice(matchObj.index, 1)
         }
@@ -92,7 +92,9 @@ export const UtilTools = {
     },
     isNumVal(num) {
         return !isNaN(parseFloat('' + num))
-    }
+    },
 }
+
+
 
 export default UtilTools

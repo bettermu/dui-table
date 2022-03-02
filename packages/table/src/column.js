@@ -1,51 +1,44 @@
 import Cell from "./cell"
-import { assemColumn } from "./utils";
+import UtilTools from './tools/utils'
 
 export default {
-  name: "DuiTableColumn",
+    name: "DuiTableColumn",
 
-  provide () {
-    return {
-      $duicolumn: this,
-    }
-  },
-  inject: {
-    $duitable: {
-      default: null
+    provide() {
+        return {
+            $duicolumn: this,
+        }
     },
-    $duicolumn: {
-      default: null
-    }
-  },
+    inject: {
+        $duitable: {
+            default: null
+        },
+        $duicolumn: {
+            default: null
+        }
+    },
 
-  props: {
-    // 渲染类型 seq,radio,checkbox,expand,html
-    type: String,
-    // 列字段名
-    field: String,
-    // 列标题
-    title: String,
-  },
+    props: {
+        // 渲染类型 seq,radio,checkbox,expand,html
+        type: String,
+        // 列字段名
+        field: String,
+        // 列标题
+        title: String,
+    },
 
-  created(){
-    this.columnConfig = this.createColumn(this.$duitable, this)
-    //console.log(this.columnConfig)
-  },
+    created() {
+        this.columnConfig = this.createColumn(this.$duitable, this)
+            //console.log(this.columnConfig)
+    },
 
-  mounted(){
-    assemColumn(this)
-  },
+    mounted() {
+        UtilTools.assemColumn(this)
+    },
 
-  render(h) {
-    return h('div', this.$slots.default)
-  },
+    render(h) {
+        return h('div', this.$slots.default)
+    },
 
-  methods: Cell
+    methods: Cell
 };
-
-
-
-
-
-
-
