@@ -36,6 +36,23 @@
           <dui-table-column field="sex2" title="Sex2" sortable :filters="[{value:'0',label:'女'},{value:'1',label:'男'}]" :filter-multiple="false"></dui-table-column>
           <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
         </dui-table>
+
+        <dui-table
+          border
+          ref="xTable1"
+          height="300"
+          :data="tableData"
+          :radio-config="{highlight: true}"
+          @cell-click="cellClickEvent"
+          @radio-change="radioChangeEvent">
+          <dui-table-column type="radio" width="60"></dui-table-column>
+          <dui-table-column field="sex" title="Sex"></dui-table-column>
+          <dui-table-column field="age" title="Age"></dui-table-column>
+          <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
+        </dui-table>
+
+
+        
   </div>
 </template>
 
