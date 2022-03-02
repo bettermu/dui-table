@@ -38,13 +38,13 @@ export function restoreScrollListener(scrollElem) {
 }
 
 // 行主键 key
-export function getRowkey($xetable) {
-    return $xetable.rowOpts.keyField || $xetable.rowId || '_X_ROW_KEY'
+export function getRowkey($duitable) {
+    return $duitable.rowOpts.keyField || $duitable.rowId || '_X_ROW_KEY'
 }
 
 // 行主键 value
-export function getRowid($xetable, row) {
-    const rowid = DUtils.get(row, getRowkey($xetable))
+export function getRowid($duitable, row) {
+    const rowid = DUtils.get(row, getRowkey($duitable))
     return DUtils.eqNull(rowid) ? '' : encodeURIComponent(rowid)
 }
 
@@ -76,7 +76,7 @@ export function handleFieldOrColumn(_vm, fieldOrColumn) {
 }
 
 function queryCellElement(cell, selector) {
-    return cell.querySelector('.vxe-cell' + selector)
+    return cell.querySelector('.dui-cell' + selector)
 }
 
 export function toFilters(filters) {
@@ -110,12 +110,12 @@ export function getColMinWidth(params) {
     let mWidth = minTitleWidth + paddingLeftRight
         // 默认最小宽处理
     if (hasEllipsis) {
-        const checkboxIconWidth = getPaddingLeftRightSize(queryCellElement(cell, '--title>.vxe-cell--checkbox'))
-        const requiredIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.vxe-cell--required-icon'))
-        const editIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.vxe-cell--edit-icon'))
-        const helpIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.vxe-cell-help-icon'))
-        const sortIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.vxe-cell--sort'))
-        const filterIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.vxe-cell--filter'))
+        const checkboxIconWidth = getPaddingLeftRightSize(queryCellElement(cell, '--title>.dui-cell--checkbox'))
+        const requiredIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.dui-cell--required-icon'))
+        const editIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.dui-cell--edit-icon'))
+        const helpIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.dui-cell-help-icon'))
+        const sortIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.dui-cell--sort'))
+        const filterIconWidth = getElemenMarginWidth(queryCellElement(cell, '>.dui-cell--filter'))
         mWidth += checkboxIconWidth + requiredIconWidth + editIconWidth + helpIconWidth + filterIconWidth + sortIconWidth
     }
     // 如果设置最小宽
@@ -150,8 +150,8 @@ function countTreeExpand(prevRow, params) {
     return count
 }
 
-export function getOffsetSize($xetable) {
-    return lineOffsetSizes[$xetable.vSize] || 0
+export function getOffsetSize($duitable) {
+    return lineOffsetSizes[$duitable.vSize] || 0
 }
 
 export function calcTreeLine(params, items, rIndex) {
@@ -213,8 +213,8 @@ export function isColumnInfo(column) {
     return column instanceof ColumnInfo
 }
 
-export function getColumnConfig($xetable, _vm, options) {
-    return isColumnInfo(_vm) ? _vm : new ColumnInfo($xetable, _vm, options)
+export function getColumnConfig($duitable, _vm, options) {
+    return isColumnInfo(_vm) ? _vm : new ColumnInfo($duitable, _vm, options)
 }
 
 const getAllColumns = (columns, parentColumn) => {

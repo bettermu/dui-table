@@ -751,8 +751,8 @@ export default {
         } = this
         const { leftList, rightList } = columnStore
         return h('div', {
-            class: ['vxe-table', 'vxe-table--render-default', `tid_${tId}`, vSize ? `size--${vSize}` : '', `border--${tableBorder}`, {
-                'vxe-editable': !!editConfig,
+            class: ['dui-table', 'dui-table--render-default', `tid_${tId}`, vSize ? `size--${vSize}` : '', `border--${tableBorder}`, {
+                'dui-editable': !!editConfig,
                 'cell--highlight': highlightCell,
                 'cell--selected': mouseConfig && mouseOpts.selected,
                 'cell--area': mouseConfig && mouseOpts.area,
@@ -782,14 +782,14 @@ export default {
              * 隐藏列
              */
             h('div', {
-                class: 'vxe-table-slots',
+                class: 'dui-table-slots',
                 ref: 'hideColumn'
             }, this.$slots.default),
             h('div', {
-                class: "vxe-table--render-wrapper"
+                class: "dui-table--render-wrapper"
             }, [
                 h('div', {
-                    class: "vxe-table--main-wrapper"
+                    class: "dui-table--main-wrapper"
                 }, [
                     /**
                      * 表头
@@ -818,7 +818,7 @@ export default {
                     /**
                      * 表尾
                      */
-                    showFooter ? h('vxe-table-footer', {
+                    showFooter ? h('dui-table-footer', {
                         ref: 'tableFooter',
                         props: {
                             footerTableData,

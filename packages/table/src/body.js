@@ -33,10 +33,10 @@ function renderLine(h, _vm, $duitable, params) {
     if (treeConfig && treeNode && treeOpts.line) {
         return [
             h('div', {
-                class: 'vxe-tree--line-wrapper'
+                class: 'dui-tree--line-wrapper'
             }, [
                 h('div', {
-                    class: 'vxe-tree--line',
+                    class: 'dui-tree--line',
                     style: {
                         height: `${calcTreeLine(params, items, rIndex)}px`,
                         left: `${(rLevel * treeOpts.indent) + (rLevel ? 2 - getOffsetSize($duitable) : 0) + 16}px`
@@ -212,7 +212,7 @@ function renderColumn(h, _vm, $duitable, seq, rowid, fixedType, rowLevel, row, r
     if (fixedHiddenColumn && (allColumnOverflow ? isAllOverflow : allColumnOverflow)) {
         tdVNs.push(
             h('div', {
-                class: ['vxe-cell', {
+                class: ['dui-cell', {
                     'c--title': showTitle,
                     'c--tooltip': showTooltip,
                     'c--ellipsis': showEllipsis
@@ -227,7 +227,7 @@ function renderColumn(h, _vm, $duitable, seq, rowid, fixedType, rowLevel, row, r
         tdVNs.push(
             ...renderLine(h, _vm, $duitable, params),
             h('div', {
-                class: ['vxe-cell', {
+                class: ['dui-cell', {
                     'c--title': showTitle,
                     'c--tooltip': showTooltip,
                     'c--ellipsis': showEllipsis
@@ -243,20 +243,20 @@ function renderColumn(h, _vm, $duitable, seq, rowid, fixedType, rowLevel, row, r
         if (showValidTip && hasValidError) {
             tdVNs.push(
                 h('div', {
-                    class: 'vxe-cell--valid',
+                    class: 'dui-cell--valid',
                     style: validStore.rule && validStore.rule.maxWidth ? {
                         width: `${validStore.rule.maxWidth}px`
                     } : null
                 }, [
                     h('span', {
-                        class: 'vxe-cell--valid-msg'
+                        class: 'dui-cell--valid-msg'
                     }, validStore.content)
                 ])
             )
         }
     }
     return h('td', {
-        class: ['vxe-body--column', column.id, {
+        class: ['dui-body--column', column.id, {
             [`col--${cellAlign}`]: cellAlign,
             [`col--${type}`]: type,
             'col--last': $columnIndex === columns.length - 1,
@@ -334,7 +334,7 @@ function renderRows(h, _vm, $duitable, fixedType, tableData, tableColumn) {
         }
         rows.push(
                 h('tr', {
-                    class: ['vxe-body--row', {
+                    class: ['dui-body--row', {
                         'row--stripe': stripe && ($duitable.getVTRowIndex(row) + 1) % 2 === 0,
                         'is--new': isNewRow,
                         'row--new': isNewRow && (editOpts.showStatus || editOpts.showInsertStatus),
@@ -364,13 +364,13 @@ function renderRows(h, _vm, $duitable, fixedType, tableData, tableColumn) {
             const expandParams = { $table: $duitable, seq, column: expandColumn, fixed: fixedType, type: renderType, level: rowLevel, row, rowIndex, $rowIndex }
             rows.push(
                 h('tr', {
-                    class: 'vxe-body--expanded-row',
+                    class: 'dui-body--expanded-row',
                     key: `expand_${rowid}`,
                     style: rowStyle ? (DUtils.isFunction(rowStyle) ? rowStyle(expandParams) : rowStyle) : null,
                     on: trOn
                 }, [
                     h('td', {
-                        class: ['vxe-body--expanded-column', {
+                        class: ['dui-body--expanded-column', {
                             'fixed--hidden': fixedType && !hasFixedColumn,
                             'col--ellipsis': hasEllipsis
                         }],
@@ -379,7 +379,7 @@ function renderRows(h, _vm, $duitable, fixedType, tableData, tableColumn) {
                         }
                     }, [
                         h('div', {
-                            class: 'vxe-body--expanded-cell',
+                            class: 'dui-body--expanded-cell',
                             style: cellStyle
                         }, [
                             expandColumn.renderData(h, expandParams)
@@ -462,8 +462,8 @@ export default {
     },
 
     mounted() {
-        const { $parent: $xetable, $el, $refs, fixedType } = this
-        const { elemStore } = $xetable
+        const { $parent: $duitable, $el, $refs, fixedType } = this
+        const { elemStore } = $duitable
         const prefix = `${fixedType || 'main'}-body-`
         elemStore[`${prefix}wrapper`] = $el
         elemStore[`${prefix}table`] = $refs.table
@@ -482,8 +482,8 @@ export default {
         this.$el.onscroll = null
     },
     destroyed() {
-        const { $parent: $xetable, fixedType } = this
-        const { elemStore } = $xetable
+        const { $parent: $duitable, fixedType } = this
+        const { elemStore } = $duitable
         const prefix = `${fixedType || 'main'}-body-`
         elemStore[`${prefix}wrapper`] = null
         elemStore[`${prefix}table`] = null
@@ -495,8 +495,8 @@ export default {
     },
 
     render(h) {
-        const { _e, $parent: $xetable, fixedColumn, fixedType } = this
-        let { $scopedSlots, tId, tableData, tableColumn, visibleColumn, showOverflow: allColumnOverflow, keyboardConfig, keyboardOpts, mergeList, spanMethod, scrollXLoad, scrollYLoad, isAllOverflow, emptyOpts, mouseConfig, mouseOpts, sYOpts } = $xetable
+        const { _e, $parent: $duitable, fixedColumn, fixedType } = this
+        let { $scopedSlots, tId, tableData, tableColumn, visibleColumn, showOverflow: allColumnOverflow, keyboardConfig, keyboardOpts, mergeList, spanMethod, scrollXLoad, scrollYLoad, isAllOverflow, emptyOpts, mouseConfig, mouseOpts, sYOpts } = $duitable
         // 如果是使用优化模式
         if (fixedType) {
             if (scrollXLoad || scrollYLoad || (allColumnOverflow ? isAllOverflow : allColumnOverflow)) {
@@ -519,18 +519,18 @@ export default {
         }
         let emptyContent
         if ($scopedSlots.empty) {
-            emptyContent = $scopedSlots.empty.call(this, { $table: $xetable }, h)
+            emptyContent = $scopedSlots.empty.call(this, { $table: $duitable }, h)
         } else {
             const compConf = emptyOpts.name ? VXETable.renderer.get(emptyOpts.name) : null
             const renderEmpty = compConf ? compConf.renderEmpty : null
             if (renderEmpty) {
-                emptyContent = renderEmpty.call(this, h, emptyOpts, { $table: $xetable })
+                emptyContent = renderEmpty.call(this, h, emptyOpts, { $table: $duitable })
             } else {
-                emptyContent = $xetable.emptyText || GlobalConfig.i18n('vxe.table.emptyText')
+                emptyContent = $duitable.emptyText || GlobalConfig.i18n('vxe.table.emptyText')
             }
         }
         return h('div', {
-            class: ['vxe-table--body-wrapper', fixedType ? `fixed-${fixedType}--wrapper` : 'body--wrapper'],
+            class: ['dui-table--body-wrapper', fixedType ? `fixed-${fixedType}--wrapper` : 'body--wrapper'],
             attrs: {
                 xid: tId
             },
@@ -539,15 +539,15 @@ export default {
             } : {}
         }, [
             fixedType ? _e() : h('div', {
-                class: 'vxe-body--x-space',
+                class: 'dui-body--x-space',
                 ref: 'xSpace'
             }),
             h('div', {
-                class: 'vxe-body--y-space',
+                class: 'dui-body--y-space',
                 ref: 'ySpace'
             }),
             h('table', {
-                class: 'vxe-table--body',
+                class: 'dui-table--body',
                 attrs: {
                     xid: tId,
                     cellspacing: 0,
@@ -574,44 +574,44 @@ export default {
                  */
                 h('tbody', {
                     ref: 'tbody'
-                }, renderRows(h, this, $xetable, fixedType, tableData, tableColumn))
+                }, renderRows(h, this, $duitable, fixedType, tableData, tableColumn))
             ]),
             h('div', {
-                class: 'vxe-table--checkbox-range'
+                class: 'dui-table--checkbox-range'
             }),
             mouseConfig && mouseOpts.area ? h('div', {
-                class: 'vxe-table--cell-area'
+                class: 'dui-table--cell-area'
             }, [
                 h('span', {
-                    class: 'vxe-table--cell-main-area'
+                    class: 'dui-table--cell-main-area'
                 }, mouseOpts.extension ? [
                     h('span', {
-                        class: 'vxe-table--cell-main-area-btn',
+                        class: 'dui-table--cell-main-area-btn',
                         on: {
                             mousedown(evnt) {
-                                $xetable.triggerCellExtendMousedownEvent(evnt, { $table: $xetable, fixed: fixedType, type: renderType })
+                                $duitable.triggerCellExtendMousedownEvent(evnt, { $table: $duitable, fixed: fixedType, type: renderType })
                             }
                         }
                     })
                 ] : null),
                 h('span', {
-                    class: 'vxe-table--cell-copy-area'
+                    class: 'dui-table--cell-copy-area'
                 }),
                 h('span', {
-                    class: 'vxe-table--cell-extend-area'
+                    class: 'dui-table--cell-extend-area'
                 }),
                 h('span', {
-                    class: 'vxe-table--cell-multi-area'
+                    class: 'dui-table--cell-multi-area'
                 }),
                 h('span', {
-                    class: 'vxe-table--cell-active-area'
+                    class: 'dui-table--cell-active-area'
                 })
             ]) : null, !fixedType ? h('div', {
-                class: 'vxe-table--empty-block',
+                class: 'dui-table--empty-block',
                 ref: 'emptyBlock'
             }, [
                 h('div', {
-                    class: 'vxe-table--empty-content'
+                    class: 'dui-table--empty-content'
                 }, emptyContent)
             ]) : null
         ])
@@ -624,8 +624,8 @@ export default {
          * 如果存在列固定右侧，同步更新滚动状态
          */
         scrollEvent(evnt) {
-            const { $el: scrollBodyElem, $parent: $xetable, fixedType } = this
-            const { $refs, elemStore, highlightHoverRow, scrollXLoad, scrollYLoad, lastScrollTop, lastScrollLeft, rowOpts } = $xetable
+            const { $el: scrollBodyElem, $parent: $duitable, fixedType } = this
+            const { $refs, elemStore, highlightHoverRow, scrollXLoad, scrollYLoad, lastScrollTop, lastScrollLeft, rowOpts } = $duitable
             const { tableHeader, tableBody, leftBody, rightBody, tableFooter, validTip } = $refs
             const headerElem = tableHeader ? tableHeader.$el : null
             const footerElem = tableFooter ? tableFooter.$el : null
@@ -640,18 +640,18 @@ export default {
             const scrollLeft = bodyElem.scrollLeft
             const isRollX = scrollLeft !== lastScrollLeft
             const isRollY = scrollTop !== lastScrollTop
-            $xetable.lastScrollTop = scrollTop
-            $xetable.lastScrollLeft = scrollLeft
-            $xetable.lastScrollTime = Date.now()
+            $duitable.lastScrollTop = scrollTop
+            $duitable.lastScrollLeft = scrollLeft
+            $duitable.lastScrollTime = Date.now()
             if (rowOpts.isHover || highlightHoverRow) {
-                $xetable.clearHoverRow()
+                $duitable.clearHoverRow()
             }
             if (leftElem && fixedType === 'left') {
                 scrollTop = leftElem.scrollTop
-                syncBodyScroll($xetable, fixedType, scrollTop, bodyElem, rightElem)
+                syncBodyScroll($duitable, fixedType, scrollTop, bodyElem, rightElem)
             } else if (rightElem && fixedType === 'right') {
                 scrollTop = rightElem.scrollTop
-                syncBodyScroll($xetable, fixedType, scrollTop, bodyElem, leftElem)
+                syncBodyScroll($duitable, fixedType, scrollTop, bodyElem, leftElem)
             } else {
                 if (isRollX) {
                     if (headerElem) {
@@ -662,22 +662,22 @@ export default {
                     }
                 }
                 if (leftElem || rightElem) {
-                    $xetable.checkScrolling()
+                    $duitable.checkScrolling()
                     if (isRollY) {
-                        syncBodyScroll($xetable, fixedType, scrollTop, leftElem, rightElem)
+                        syncBodyScroll($duitable, fixedType, scrollTop, leftElem, rightElem)
                     }
                 }
             }
             if (scrollXLoad && isRollX) {
-                $xetable.triggerScrollXEvent(evnt)
+                $duitable.triggerScrollXEvent(evnt)
             }
             if (scrollYLoad && isRollY) {
-                $xetable.triggerScrollYEvent(evnt)
+                $duitable.triggerScrollYEvent(evnt)
             }
             if (isRollX && validTip && validTip.visible) {
                 validTip.updatePlacement()
             }
-            $xetable.emitEvent('scroll', {
+            $duitable.emitEvent('scroll', {
                 type: renderType,
                 fixed: fixedType,
                 scrollTop,
@@ -691,8 +691,8 @@ export default {
             }, evnt)
         },
         handleWheel(evnt, isTopWheel, deltaTop, isRollX, isRollY) {
-            const { $parent: $xetable } = this
-            const { $refs, elemStore, scrollYLoad, scrollXLoad } = $xetable
+            const { $parent: $duitable } = this
+            const { $refs, elemStore, scrollYLoad, scrollXLoad } = $duitable
             const { tableBody, leftBody, rightBody } = $refs
             const bodyElem = tableBody.$el
             const leftElem = leftBody ? leftBody.$el : null
@@ -729,7 +729,7 @@ export default {
                     }
                     this.wheelYTotal = wheelYTotal
                     this.wheelYInterval = wheelYInterval
-                    $xetable.emitEvent('scroll', {
+                    $duitable.emitEvent('scroll', {
                         type: renderType,
                         fixed: fixedType,
                         scrollTop: bodyElem.scrollTop,
@@ -750,8 +750,8 @@ export default {
          */
         wheelEvent(evnt) {
             const { deltaY, deltaX } = evnt
-            const { $el: scrollBodyElem, $parent: $xetable } = this
-            const { $refs, highlightHoverRow, scrollYLoad, lastScrollTop, lastScrollLeft, rowOpts } = $xetable
+            const { $el: scrollBodyElem, $parent: $duitable } = this
+            const { $refs, highlightHoverRow, scrollYLoad, lastScrollTop, lastScrollLeft, rowOpts } = $duitable
             const { tableBody } = $refs
             const bodyElem = tableBody.$el
 
@@ -771,15 +771,15 @@ export default {
             // 用于鼠标纵向滚轮处理
             if (isRollY) {
                 evnt.preventDefault()
-                $xetable.lastScrollTop = scrollTop
-                $xetable.lastScrollLeft = scrollLeft
-                $xetable.lastScrollTime = Date.now()
+                $duitable.lastScrollTop = scrollTop
+                $duitable.lastScrollLeft = scrollLeft
+                $duitable.lastScrollTime = Date.now()
                 if (rowOpts.isHover || highlightHoverRow) {
-                    $xetable.clearHoverRow()
+                    $duitable.clearHoverRow()
                 }
                 this.handleWheel(evnt, isTopWheel, deltaTop, isRollX, isRollY)
                 if (scrollYLoad) {
-                    $xetable.triggerScrollYEvent(evnt)
+                    $duitable.triggerScrollYEvent(evnt)
                 }
             }
         }

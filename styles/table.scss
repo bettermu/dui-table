@@ -21,12 +21,12 @@
     height: $vxe-table-row-height-mini;
 }
 
-.vxe-table-slots,
-.vxe-table--file-form {
+.dui-table-slots,
+.dui-table--file-form {
     display: none;
 }
 
-.vxe-table--print-frame {
+.dui-table--print-frame {
     position: fixed;
     bottom: -100%;
     left: -100%;
@@ -35,13 +35,13 @@
     border: 0;
 }
 
-.vxe-table--body-wrapper {
+.dui-table--body-wrapper {
     scroll-behavior: auto;
 }
 
-.vxe-table--body-wrapper,
-.vxe-table--fixed-left-body-wrapper,
-.vxe-table--fixed-right-body-wrapper {
+.dui-table--body-wrapper,
+.dui-table--fixed-left-body-wrapper,
+.dui-table--fixed-right-body-wrapper {
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -49,15 +49,15 @@
 
 /*默认的渲染*/
 
-.vxe-cell,
-.vxe-table--filter-wrapper {
-    .vxe-default-input,
-    .vxe-default-textarea {
+.dui-cell,
+.dui-table--filter-wrapper {
+    .dui-default-input,
+    .dui-default-textarea {
         background-color: $vxe-table-body-background-color;
     }
-    .vxe-default-input,
-    .vxe-default-textarea,
-    .vxe-default-select {
+    .dui-default-input,
+    .dui-default-textarea,
+    .dui-default-select {
         outline: 0;
         padding: 0 2px;
         width: 100%;
@@ -72,12 +72,12 @@
             background-color: $vxe-input-disabled-background-color;
         }
     }
-    .vxe-default-input,
-    .vxe-default-textarea,
-    .vxe-default-select {
+    .dui-default-input,
+    .dui-default-textarea,
+    .dui-default-select {
         height: $vxe-input-height-default;
     }
-    .vxe-default-input {
+    .dui-default-input {
         &[type="date"]::-webkit-inner-spin-button {
             margin-top: 4px;
         }
@@ -89,72 +89,72 @@
             color: $vxe-input-placeholder-color;
         }
     }
-    .vxe-default-textarea {
+    .dui-default-textarea {
         resize: none;
         vertical-align: middle;
     }
-    .vxe-input,
-    .vxe-textarea,
-    .vxe-select {
+    .dui-input,
+    .dui-textarea,
+    .dui-select {
         width: 100%;
         display: block;
     }
-    .vxe-input>.vxe-input--inner,
-    .vxe-textarea>.vxe-textarea--inner {
+    .dui-input>.dui-input--inner,
+    .dui-textarea>.dui-textarea--inner {
         padding: 0 2px;
     }
-    .vxe-textarea--inner,
-    .vxe-default-textarea {
+    .dui-textarea--inner,
+    .dui-default-textarea {
         resize: none;
     }
 }
 
-.vxe-table--checkbox-range,
-.vxe-table--cell-main-area,
-.vxe-table--cell-extend-area,
-.vxe-table--cell-active-area,
-.vxe-table--cell-copy-area {
+.dui-table--checkbox-range,
+.dui-table--cell-main-area,
+.dui-table--cell-extend-area,
+.dui-table--cell-active-area,
+.dui-table--cell-copy-area {
     display: none;
     position: absolute;
     pointer-events: none;
     z-index: 1;
 }
 
-.vxe-table--fixed-left-wrapper,
-.vxe-table--fixed-right-wrapper {
-    .vxe-table--checkbox-range,
-    .vxe-table--cell-main-area,
-    .vxe-table--cell-extend-area,
-    .vxe-table--cell-active-area,
-    .vxe-table--cell-copy-area {
+.dui-table--fixed-left-wrapper,
+.dui-table--fixed-right-wrapper {
+    .dui-table--checkbox-range,
+    .dui-table--cell-main-area,
+    .dui-table--cell-extend-area,
+    .dui-table--cell-active-area,
+    .dui-table--cell-copy-area {
         z-index: 2;
     }
 }
 
-.vxe-table--fixed-left-wrapper {
-    .vxe-table--cell-main-area,
-    .vxe-table--cell-extend-area,
-    .vxe-table--cell-active-area {
+.dui-table--fixed-left-wrapper {
+    .dui-table--cell-main-area,
+    .dui-table--cell-extend-area,
+    .dui-table--cell-active-area {
         &[half="1"] {
             border-right: 0;
         }
     }
-    .vxe-table--cell-copy-area {
+    .dui-table--cell-copy-area {
         &[half="1"] {
             background-size: $vxe-table-cell-copy-area-border-width 12px, 0 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
         }
     }
 }
 
-.vxe-table--fixed-right-wrapper {
-    .vxe-table--cell-main-area,
-    .vxe-table--cell-extend-area,
-    .vxe-table--cell-active-area {
+.dui-table--fixed-right-wrapper {
+    .dui-table--cell-main-area,
+    .dui-table--cell-extend-area,
+    .dui-table--cell-active-area {
         &[half="1"] {
             border-left: 0;
         }
     }
-    .vxe-table--cell-copy-area {
+    .dui-table--cell-copy-area {
         &[half="1"] {
             background-size: 0 12px, $vxe-table-cell-copy-area-border-width 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
         }
@@ -164,20 +164,20 @@
 
 /*复选框-范围选择*/
 
-.vxe-table--checkbox-range {
+.dui-table--checkbox-range {
     background-color: $vxe-table-checkbox-range-background-color;
     border: $vxe-table-checkbox-range-border-width solid $vxe-table-checkbox-range-border-color;
 }
 
-.vxe-table--cell-area {
+.dui-table--cell-area {
     height: 0;
     font-size: 0;
     display: none;
-    &>.vxe-table--cell-main-area {
+    &>.dui-table--cell-main-area {
         background-color: $vxe-table-cell-area-background-color;
         border: $vxe-table-cell-area-border-width solid $vxe-table-cell-area-border-color;
     }
-    .vxe-table--cell-main-area-btn {
+    .dui-table--cell-main-area-btn {
         display: none;
         position: absolute;
         right: -1px;
@@ -191,7 +191,7 @@
         pointer-events: auto;
         cursor: crosshair;
     }
-    .vxe-table--cell-extend-area {
+    .dui-table--cell-extend-area {
         border: $vxe-table-cell-extend-area-border-width solid $vxe-table-cell-extend-area-border-color;
     }
 }
@@ -203,19 +203,19 @@
     }
 }
 
-.vxe-table--cell-copy-area {
+.dui-table--cell-copy-area {
     background: linear-gradient(0deg, transparent 6px, $vxe-table-cell-copy-area-border-color 6px) repeat-y, linear-gradient(0deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-y, linear-gradient(90deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-x, linear-gradient(90deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-x;
     background-size: $vxe-table-cell-copy-area-border-width 12px, $vxe-table-cell-copy-area-border-width 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
     background-position: 0 0, 100% 0, 0 0, 0 100%;
     animation: moveCopyCellBorder .5s infinite linear;
 }
 
-.vxe-table--cell-active-area {
+.dui-table--cell-active-area {
     border: $vxe-table-cell-active-area-border-width solid $vxe-table-cell-active-area-border-color;
 }
 
-.vxe-table--cell-multi-area {
-    &>.vxe-table--cell-main-area {
+.dui-table--cell-multi-area {
+    &>.dui-table--cell-main-area {
         background-color: $vxe-table-cell-area-background-color;
     }
 }
@@ -224,7 +224,7 @@
 /*圆角*/
 
 @if $vxe-table-border-radius {
-    .vxe-table--render-default {
+    .dui-table--render-default {
         &.is--round {
             %AllRadius {
                 border-radius: $vxe-table-border-radius;
@@ -248,12 +248,12 @@
                 border-radius: 0 0 $vxe-table-border-radius 0;
             }
             @extend %AllRadius;
-            .vxe-table--border-line {
+            .dui-table--border-line {
                 @extend %AllRadius;
             }
             &.is--header {
                 &:not(.is--footer) {
-                    .vxe-table--body-wrapper {
+                    .dui-table--body-wrapper {
                         &.fixed-left--wrapper {
                             @extend %BottomLeftRadius;
                         }
@@ -265,7 +265,7 @@
                         }
                     }
                 }
-                .vxe-table--header-wrapper {
+                .dui-table--header-wrapper {
                     &.fixed-left--wrapper {
                         @extend %TopLeftRadius;
                     }
@@ -279,7 +279,7 @@
             }
             &:not(.is--header) {
                 &:not(.is--footer) {
-                    .vxe-table--body-wrapper {
+                    .dui-table--body-wrapper {
                         &.body--wrapper {
                             @extend %AllRadius;
                         }
@@ -288,7 +288,7 @@
             }
             &.is--footer {
                 &:not(.is--header) {
-                    .vxe-table--body-wrapper {
+                    .dui-table--body-wrapper {
                         &.fixed-left--wrapper {
                             @extend %BottomLeftRadius;
                         }
@@ -300,7 +300,7 @@
                         }
                     }
                 }
-                .vxe-table--footer-wrapper {
+                .dui-table--footer-wrapper {
                     &.fixed-left--wrapper {
                         @extend %BottomLeftRadius;
                     }
@@ -319,41 +319,41 @@
 
 /*table*/
 
-.vxe-table--render-default {
+.dui-table--render-default {
     position: relative;
     font-size: $vxe-font-size;
     color: $vxe-table-font-color;
     font-family: $vxe-font-family;
     direction: ltr;
-    .vxe-table--body-wrapper {
+    .dui-table--body-wrapper {
         background-color: $vxe-table-body-background-color;
     }
-    .vxe-table--footer-wrapper {
+    .dui-table--footer-wrapper {
         background-color: $vxe-table-footer-background-color;
     }
-    .vxe-table--header,
-    .vxe-table--body,
-    .vxe-table--footer {
+    .dui-table--header,
+    .dui-table--body,
+    .dui-table--footer {
         border: 0;
         border-spacing: 0;
         border-collapse: separate;
         table-layout: fixed;
     }
-    .vxe-table--header-wrapper,
-    .vxe-table--footer-wrapper {
+    .dui-table--header-wrapper,
+    .dui-table--footer-wrapper {
         overflow-x: hidden;
         overflow-y: hidden;
     }
     &:not(.is--empty) {
         &.is--footer {
             &.is--scroll-x {
-                .vxe-table--body-wrapper {
+                .dui-table--body-wrapper {
                     overflow-x: scroll;
                 }
             }
         }
     }
-    .vxe-body--row {
+    .dui-body--row {
         &.row--stripe {
             background-color: $vxe-table-row-striped-background-color;
         }
@@ -383,48 +383,48 @@
         }
     }
     // &.is--tree-line {
-    //   .vxe-body--row {
+    //   .dui-body--row {
     //     &.row--stripe {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-row-striped-background-color;
     //       }
     //     }
     //     &.row--radio {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-row-radio-checked-background-color;
     //       }
     //     }
     //     &.row--checked {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-row-checkbox-checked-background-color;
     //       }
     //     }
     //     &.row--current {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-row-current-background-color;
     //       }
     //     }
     //     &.row--hover {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-row-hover-background-color;
     //       }
     //       &.row--stripe {
-    //         .vxe-tree--btn-wrapper {
+    //         .dui-tree--btn-wrapper {
     //           background-color: $vxe-table-row-hover-striped-background-color;
     //         }
     //       }
     //       &.row--radio {
-    //         .vxe-tree--btn-wrapper {
+    //         .dui-tree--btn-wrapper {
     //           background-color: $vxe-table-row-hover-radio-checked-background-color;
     //         }
     //       }
     //       &.row--checked {
-    //         .vxe-tree--btn-wrapper {
+    //         .dui-tree--btn-wrapper {
     //           background-color: $vxe-table-row-hover-checkbox-checked-background-color;
     //         }
     //       }
     //       &.row--current {
-    //         .vxe-tree--btn-wrapper {
+    //         .dui-tree--btn-wrapper {
     //           background-color: $vxe-table-row-hover-current-background-color;
     //         }
     //       }
@@ -432,9 +432,9 @@
     //   }
     // }
     &.drag--resize {
-        .vxe-table--main-wrapper,
-        .vxe-table--fixed-left-wrapper,
-        .vxe-table--fixed-right-wrapper {
+        .dui-table--main-wrapper,
+        .dui-table--fixed-left-wrapper,
+        .dui-table--fixed-right-wrapper {
             * {
                 cursor: col-resize;
             }
@@ -442,25 +442,25 @@
     }
     &.drag--range,
     &.drag--area {
-        .vxe-table--main-wrapper,
-        .vxe-table--fixed-left-wrapper,
-        .vxe-table--fixed-right-wrapper {
+        .dui-table--main-wrapper,
+        .dui-table--fixed-left-wrapper,
+        .dui-table--fixed-right-wrapper {
             * {
                 cursor: default;
             }
         }
     }
     &.drag--extend-range {
-        .vxe-table--main-wrapper,
-        .vxe-table--fixed-left-wrapper,
-        .vxe-table--fixed-right-wrapper {
+        .dui-table--main-wrapper,
+        .dui-table--fixed-left-wrapper,
+        .dui-table--fixed-right-wrapper {
             * {
                 cursor: crosshair;
             }
         }
     }
     &.column--highlight {
-        .vxe-header--column {
+        .dui-header--column {
             &:not(.col--seq) {
                 &:hover {
                     background-color: $vxe-table-column-hover-background-color;
@@ -469,13 +469,13 @@
         }
     }
     &.cell--area {
-        .vxe-table--main-wrapper {
+        .dui-table--main-wrapper {
             user-select: none;
         }
     }
-    .vxe-header--column,
-    .vxe-body--column,
-    .vxe-footer--column {
+    .dui-header--column,
+    .dui-body--column,
+    .dui-footer--column {
         position: relative;
         line-height: $vxe-table-row-line-height;
         text-align: left;
@@ -484,7 +484,7 @@
         }
         &.col--current {
             background-color: $vxe-table-column-current-background-color;
-            // .vxe-tree--btn-wrapper {
+            // .dui-tree--btn-wrapper {
             //   background-color: $vxe-table-column-current-background-color;
             // }
         }
@@ -496,52 +496,52 @@
         }
     }
     // &.is--tree-line {
-    //   .vxe-header--column,
-    //   .vxe-body--column,
-    //   .vxe-footer--column {
+    //   .dui-header--column,
+    //   .dui-body--column,
+    //   .dui-footer--column {
     //     &.col--current {
-    //       .vxe-tree--btn-wrapper {
+    //       .dui-tree--btn-wrapper {
     //         background-color: $vxe-table-column-current-background-color;
     //       }
     //     }
     //   }
     // }
-    .vxe-header--column,
-    .vxe-footer--column {
+    .dui-header--column,
+    .dui-footer--column {
         &.col--ellipsis {
             &.col--center {
-                .vxe-cell {
+                .dui-cell {
                     justify-content: center;
                 }
             }
             &.col--right {
-                .vxe-cell {
+                .dui-cell {
                     justify-content: flex-end;
                 }
             }
         }
     }
-    .vxe-body--column {
+    .dui-body--column {
         &.col--checkbox {
             user-select: none;
         }
     }
     /*边框*/
-    .vxe-table--footer-wrapper {
+    .dui-table--footer-wrapper {
         border-top: $vxe-table-border-width solid $vxe-table-border-color;
     }
     &.border--default,
     &.border--full,
     &.border--outer {
-        .vxe-table--header-wrapper {
+        .dui-table--header-wrapper {
             background-color: $vxe-table-header-background-color;
         }
     }
     &.border--default,
     &.border--inner {
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color);
             background-repeat: no-repeat;
             background-size: 100% $vxe-table-border-width;
@@ -549,17 +549,17 @@
         }
     }
     &.border--full {
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color), linear-gradient($vxe-table-border-color, $vxe-table-border-color);
             background-repeat: no-repeat;
             background-size: $vxe-table-border-width 100%, 100% $vxe-table-border-width;
             background-position: right top, right bottom;
         }
-        .vxe-table--fixed-left-wrapper {
+        .dui-table--fixed-left-wrapper {
             // border-right: $vxe-table-border-width solid $vxe-table-border-color;
-            .vxe-body--column {
+            .dui-body--column {
                 border-right-color: $vxe-table-border-color;
             }
         }
@@ -568,10 +568,10 @@
     &.border--full,
     &.border--outer,
     &.border--inner {
-        .vxe-table--header-wrapper {
-            .vxe-header--row {
+        .dui-table--header-wrapper {
+            .dui-header--row {
                 &:last-child {
-                    .vxe-header--gutter {
+                    .dui-header--gutter {
                         background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color);
                         background-repeat: no-repeat;
                         background-size: 100% $vxe-table-border-width;
@@ -583,49 +583,49 @@
     }
     &.border--inner,
     &.border--none {
-        .vxe-table--header-wrapper {
+        .dui-table--header-wrapper {
             background-color: $vxe-table-body-background-color;
         }
-        .vxe-table--fixed-left-wrapper {
+        .dui-table--fixed-left-wrapper {
             border-right: 0;
         }
     }
     &.border--inner {
-        .vxe-table--border-line {
+        .dui-table--border-line {
             border-width: 0 0 1px 0;
         }
     }
     &.border--none {
-        .vxe-table--border-line {
+        .dui-table--border-line {
             display: none;
         }
-        .vxe-table--header-border-line {
+        .dui-table--header-border-line {
             display: none;
         }
-        .vxe-table--footer-wrapper {
+        .dui-table--footer-wrapper {
             border-top: 0;
         }
     }
     &.size--medium {
         font-size: $vxe-font-size-medium;
-        .vxe-table--empty-placeholder,
-        .vxe-table--empty-block {
+        .dui-table--empty-placeholder,
+        .dui-table--empty-block {
             min-height: $vxe-table-row-height-medium;
         }
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &:not(.col--ellipsis) {
                 padding: $vxe-table-column-padding-medium;
             }
         }
-        .vxe-cell {
-            .vxe-default-input,
-            .vxe-default-textarea,
-            .vxe-default-select {
+        .dui-cell {
+            .dui-default-input,
+            .dui-default-textarea,
+            .dui-default-select {
                 height: $vxe-input-height-medium;
             }
-            .vxe-default-input {
+            .dui-default-input {
                 &[type="date"]::-webkit-inner-spin-button {
                     margin-top: 3px;
                 }
@@ -634,24 +634,24 @@
     }
     &.size--small {
         font-size: $vxe-font-size-small;
-        .vxe-table--empty-placeholder,
-        .vxe-table--empty-block {
+        .dui-table--empty-placeholder,
+        .dui-table--empty-block {
             min-height: $vxe-table-row-height-small;
         }
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &:not(.col--ellipsis) {
                 padding: $vxe-table-column-padding-small;
             }
         }
-        .vxe-cell {
-            .vxe-default-input,
-            .vxe-default-textarea,
-            .vxe-default-select {
+        .dui-cell {
+            .dui-default-input,
+            .dui-default-textarea,
+            .dui-default-select {
                 height: $vxe-input-height-small;
             }
-            .vxe-default-input {
+            .dui-default-input {
                 &[type="date"]::-webkit-inner-spin-button {
                     margin-top: 2px;
                 }
@@ -660,65 +660,65 @@
     }
     &.size--mini {
         font-size: $vxe-font-size-mini;
-        .vxe-table--empty-placeholder,
-        .vxe-table--empty-block {
+        .dui-table--empty-placeholder,
+        .dui-table--empty-block {
             min-height: $vxe-table-row-height-mini;
         }
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &:not(.col--ellipsis) {
                 padding: $vxe-table-column-padding-mini;
             }
         }
-        .vxe-cell {
-            .vxe-default-input,
-            .vxe-default-textarea,
-            .vxe-default-select {
+        .dui-cell {
+            .dui-default-input,
+            .dui-default-textarea,
+            .dui-default-select {
                 height: $vxe-input-height-mini;
             }
-            .vxe-default-input {
+            .dui-default-input {
                 &[type="date"]::-webkit-inner-spin-button {
                     margin-top: 1px;
                 }
             }
         }
     }
-    .vxe-cell {
+    .dui-cell {
         white-space: pre-line;
         word-break: break-all;
         padding-left: $vxe-table-cell-padding-left;
         padding-right: $vxe-table-cell-padding-right;
     }
     // 单元格占位符
-    .vxe-cell--placeholder {
+    .dui-cell--placeholder {
         color: $vxe-table-cell-placeholder-color;
     }
     // 单选框和复选框
-    .vxe-cell--radio {
+    .dui-cell--radio {
         @extend %XERadio;
     }
-    .vxe-cell--checkbox {
+    .dui-cell--checkbox {
         @extend %XECheckbox;
     }
-    .vxe-cell--radio .vxe-radio--icon,
-    .vxe-cell--checkbox .vxe-checkbox--icon {
+    .dui-cell--radio .dui-radio--icon,
+    .dui-cell--checkbox .dui-checkbox--icon {
         left: 0;
         top: 0.1em;
     }
-    .vxe-cell--radio .vxe-radio--label,
-    .vxe-cell--checkbox .vxe-checkbox--label {
+    .dui-cell--radio .dui-radio--label,
+    .dui-cell--checkbox .dui-checkbox--label {
         padding-left: 0.5em;
     }
-    .vxe-cell--radio,
-    .vxe-cell--checkbox {
+    .dui-cell--radio,
+    .dui-cell--checkbox {
         padding-left: 1.2em;
     }
     .fixed--hidden {
         visibility: hidden;
     }
-    .vxe-table--fixed-left-wrapper,
-    .vxe-table--fixed-right-wrapper {
+    .dui-table--fixed-left-wrapper,
+    .dui-table--fixed-right-wrapper {
         width: 100%;
         position: absolute;
         top: 0;
@@ -726,41 +726,41 @@
         overflow: hidden;
         background-color: inherit;
         transition: 0.3s box-shadow;
-        .vxe-table--body-wrapper {
+        .dui-table--body-wrapper {
             overflow-x: hidden;
         }
     }
-    .vxe-table--fixed-left-wrapper {
-        .vxe-table--body-wrapper {
+    .dui-table--fixed-left-wrapper {
+        .dui-table--body-wrapper {
             width: calc(100% + 40px);
         }
     }
     &.is--header {
-        .vxe-table--fixed-left-wrapper,
-        .vxe-table--fixed-right-wrapper {
-            .vxe-table--body-wrapper {
+        .dui-table--fixed-left-wrapper,
+        .dui-table--fixed-right-wrapper {
+            .dui-table--body-wrapper {
                 &:before {
                     display: none;
                 }
             }
         }
     }
-    .vxe-table--fixed-left-wrapper {
+    .dui-table--fixed-left-wrapper {
         left: 0;
         width: 200px;
         &.scrolling--middle {
             box-shadow: $vxe-table-fixed-left-scrolling-box-shadow;
         }
     }
-    .vxe-table--fixed-right-wrapper {
+    .dui-table--fixed-right-wrapper {
         right: 0;
         &.scrolling--middle {
             box-shadow: $vxe-table-fixed-right-scrolling-box-shadow;
         }
     }
-    .vxe-table--header-wrapper,
-    .vxe-table--body-wrapper,
-    .vxe-table--footer-wrapper {
+    .dui-table--header-wrapper,
+    .dui-table--body-wrapper,
+    .dui-table--footer-wrapper {
         position: relative;
         &.fixed-left--wrapper,
         &.fixed-right--wrapper {
@@ -775,17 +775,17 @@
             overflow-y: auto;
         }
     }
-    .vxe-body--x-space {
+    .dui-body--x-space {
         width: 100%;
         height: 1px;
         margin-bottom: -1px;
     }
-    .vxe-body--y-space {
+    .dui-body--y-space {
         width: 0;
         float: left;
     }
     /*列宽线*/
-    .vxe-table--resizable-bar {
+    .dui-table--resizable-bar {
         display: none;
         position: absolute;
         top: 0;
@@ -802,7 +802,7 @@
         }
     }
     /*边框线*/
-    .vxe-table--border-line {
+    .dui-table--border-line {
         position: absolute;
         top: 0;
         left: 0;
@@ -814,25 +814,25 @@
     }
     /*树形节点*/
     &.is--tree-line {
-        .vxe-body--row {
+        .dui-body--row {
             &:first-child {
-                .vxe-tree--line {
+                .dui-tree--line {
                     border-width: 0 0 1px 0;
                 }
             }
         }
-        .vxe-body--row {
-            .vxe-body--column {
+        .dui-body--row {
+            .dui-body--column {
                 background-image: none;
             }
         }
     }
-    .vxe-tree--line-wrapper {
+    .dui-tree--line-wrapper {
         position: relative;
         display: block;
         height: 0;
     }
-    .vxe-tree--line {
+    .dui-tree--line {
         content: "";
         position: absolute;
         bottom: -0.9em;
@@ -842,10 +842,10 @@
         border-color: $vxe-table-tree-node-line-color;
         pointer-events: none;
     }
-    .vxe-cell--tree-node {
+    .dui-cell--tree-node {
         position: relative;
     }
-    .vxe-tree--btn-wrapper {
+    .dui-tree--btn-wrapper {
         position: absolute;
         top: 50%;
         width: 1em;
@@ -856,21 +856,21 @@
         user-select: none;
         cursor: pointer;
     }
-    .vxe-tree--node-btn {
+    .dui-tree--node-btn {
         display: block;
         color: lighten($vxe-table-font-color, 20%);
         &:hover {
             color: $vxe-table-font-color;
         }
     }
-    .vxe-tree-cell {
+    .dui-tree-cell {
         display: block;
         padding-left: 1.5em;
     }
-    .vxe-body--column {
+    .dui-body--column {
         &.col--ellipsis {
-            &>.vxe-cell {
-                .vxe-tree-cell {
+            &>.dui-cell {
+                .dui-tree-cell {
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -879,9 +879,9 @@
         }
     }
     /*展开行*/
-    .vxe-table--expanded {
+    .dui-table--expanded {
         cursor: pointer;
-        .vxe-table--expand-btn {
+        .dui-table--expand-btn {
             width: 1em;
             height: 1em;
             text-align: center;
@@ -891,118 +891,118 @@
                 color: $vxe-table-font-color;
             }
         }
-        &+.vxe-table--expand-label {
+        &+.dui-table--expand-label {
             padding-left: 0.5em;
         }
     }
-    .vxe-body--expanded-column {
+    .dui-body--expanded-column {
         border-bottom: $vxe-table-border-width solid $vxe-table-border-color;
         &.col--ellipsis {
-            &>.vxe-body--expanded-cell {
+            &>.dui-body--expanded-cell {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
         }
     }
-    .vxe-body--expanded-cell {
+    .dui-body--expanded-cell {
         position: relative;
         z-index: 1;
     }
     /*设置列高度*/
-    &.vxe-editable {
-        .vxe-body--column {
+    &.dui-editable {
+        .dui-body--column {
             @extend %DefaultColumnHeight;
         }
         &.size--medium {
-            .vxe-body--column {
+            .dui-body--column {
                 @extend %MediumColumnHeight;
             }
         }
         &.size--small {
-            .vxe-body--column {
+            .dui-body--column {
                 @extend %SmallColumnHeight;
             }
         }
         &.size--mini {
-            .vxe-body--column {
+            .dui-body--column {
                 @extend %MiniColumnHeight;
             }
         }
     }
     /*溢出列*/
-    .vxe-header--column,
-    .vxe-body--column,
-    .vxe-footer--column {
+    .dui-header--column,
+    .dui-body--column,
+    .dui-footer--column {
         &.col--ellipsis {
             @extend %DefaultColumnHeight;
             &:not(.col--actived) {
-                &>.vxe-cell {
+                &>.dui-cell {
                     @extend %TextEllipsis;
                 }
             }
-            &>.vxe-cell {
+            &>.dui-cell {
                 max-height: $vxe-table-row-height-default;
             }
         }
     }
     &.size--medium {
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &.col--ellipsis {
                 @extend %MediumColumnHeight;
-                &>.vxe-cell {
+                &>.dui-cell {
                     max-height: $vxe-table-row-height-medium;
                 }
             }
         }
-        .vxe-cell--checkbox .vxe-checkbox--icon {
+        .dui-cell--checkbox .dui-checkbox--icon {
             font-size: $vxe-checkbox-font-size-medium;
         }
-        .vxe-cell--radio .vxe-radio--icon {
+        .dui-cell--radio .dui-radio--icon {
             font-size: $vxe-radio-font-size-medium;
         }
     }
     &.size--small {
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &.col--ellipsis {
                 @extend %SmallColumnHeight;
-                &>.vxe-cell {
+                &>.dui-cell {
                     max-height: $vxe-table-row-height-small;
                 }
             }
         }
-        .vxe-cell--checkbox .vxe-checkbox--icon {
+        .dui-cell--checkbox .dui-checkbox--icon {
             font-size: $vxe-checkbox-font-size-small;
         }
-        .vxe-cell--radio .vxe-radio--icon {
+        .dui-cell--radio .dui-radio--icon {
             font-size: $vxe-radio-font-size-small;
         }
     }
     &.size--mini {
-        .vxe-header--column,
-        .vxe-body--column,
-        .vxe-footer--column {
+        .dui-header--column,
+        .dui-body--column,
+        .dui-footer--column {
             &.col--ellipsis {
                 @extend %MiniColumnHeight;
-                &>.vxe-cell {
+                &>.dui-cell {
                     max-height: $vxe-table-row-height-mini;
                 }
             }
         }
-        .vxe-cell--checkbox .vxe-checkbox--icon {
+        .dui-cell--checkbox .dui-checkbox--icon {
             font-size: $vxe-checkbox-font-size-mini;
         }
-        .vxe-cell--radio .vxe-radio--icon {
+        .dui-cell--radio .dui-radio--icon {
             font-size: $vxe-radio-font-size-mini;
         }
     }
     /*暂无数据*/
-    .vxe-table--empty-placeholder,
-    .vxe-table--empty-block {
+    .dui-table--empty-placeholder,
+    .dui-table--empty-block {
         min-height: $vxe-table-row-height-default;
         justify-content: center;
         align-items: center;
@@ -1011,40 +1011,40 @@
         width: 100%;
         pointer-events: none;
     }
-    .vxe-table--empty-block {
+    .dui-table--empty-block {
         display: none;
         visibility: hidden;
     }
-    .vxe-table--empty-placeholder {
+    .dui-table--empty-placeholder {
         display: none;
         position: absolute;
         top: 0;
         z-index: 5;
     }
-    .vxe-table--empty-content {
+    .dui-table--empty-content {
         display: block;
         width: 50%;
         pointer-events: auto;
     }
     &.is--empty {
-        .vxe-table--empty-block,
-        .vxe-table--empty-placeholder {
+        .dui-table--empty-block,
+        .dui-table--empty-placeholder {
             display: flex;
         }
     }
-    .vxe-body--column {
+    .dui-body--column {
         &.col--selected {
             box-shadow: inset 0px 0px 0px 2px $vxe-primary-color;
         }
     }
     /*校验不通过*/
-    .vxe-body--column {
+    .dui-body--column {
         &.col--actived,
         &.col--selected {
             position: relative;
         }
         &.col--valid-error {
-            .vxe-cell--valid {
+            .dui-cell--valid {
                 width: 320px;
                 position: absolute;
                 bottom: calc(100% + 4px);
@@ -1053,7 +1053,7 @@
                 text-align: center;
                 pointer-events: none;
                 z-index: 4;
-                .vxe-cell--valid-msg {
+                .dui-cell--valid-msg {
                     display: inline-block;
                     border-radius: $vxe-border-radius;
                     padding: 8px 12px;
@@ -1062,29 +1062,29 @@
                     pointer-events: auto;
                 }
             }
-            .vxe-default-input,
-            .vxe-default-textarea,
-            .vxe-default-select {
+            .dui-default-input,
+            .dui-default-textarea,
+            .dui-default-select {
                 border-color: $vxe-table-validate-error-color;
             }
-            .vxe-input {
-                >.vxe-input--inner {
+            .dui-input {
+                >.dui-input--inner {
                     border-color: $vxe-table-validate-error-color;
                 }
             }
         }
     }
-    .vxe-body--row {
+    .dui-body--row {
         &:first-child {
-            .vxe-cell--valid {
+            .dui-cell--valid {
                 bottom: auto;
                 top: calc(100% + 4px);
             }
         }
     }
-    .vxe-body--column {
+    .dui-body--column {
         &:first-child {
-            .vxe-cell--valid {
+            .dui-cell--valid {
                 left: 10px;
                 transform: translateX(0);
                 text-align: left;
@@ -1092,9 +1092,9 @@
         }
     }
     /*单元格编辑状态*/
-    .vxe-body--row {
+    .dui-body--row {
         &.row--new {
-            &>.vxe-body--column {
+            &>.dui-body--column {
                 position: relative;
                 &:before {
                     content: "";
@@ -1109,7 +1109,7 @@
             }
         }
     }
-    .vxe-body--column {
+    .dui-body--column {
         &.col--dirty {
             position: relative;
             &:before {
@@ -1125,32 +1125,32 @@
         }
     }
     /*可编辑*/
-    &.vxe-editable {
+    &.dui-editable {
         &.cell--highlight {
-            .vxe-body--column {
+            .dui-body--column {
                 &.col--actived {
                     box-shadow: inset 0px 0px 0px 2px $vxe-primary-color;
                     &.col--valid-error {
                         box-shadow: inset 0px 0px 0px 2px $vxe-table-validate-error-color;
                     }
-                    .vxe-cell {
-                        .vxe-default-input,
-                        .vxe-default-textarea {
+                    .dui-cell {
+                        .dui-default-input,
+                        .dui-default-textarea {
                             border: 0;
                             padding: 0;
                         }
-                        .vxe-default-input {
+                        .dui-default-input {
                             height: $vxe-table-row-line-height;
                         }
-                        .vxe-input {
-                            .vxe-input--inner {
+                        .dui-input {
+                            .dui-input--inner {
                                 border: 0;
                                 padding-left: 0;
                             }
                         }
-                        .vxe-textarea {
+                        .dui-textarea {
                             height: $vxe-table-row-line-height - 1;
-                            .vxe-textarea--inner {
+                            .dui-textarea--inner {
                                 border: 0;
                             }
                         }
@@ -1158,7 +1158,7 @@
                 }
             }
         }
-        .vxe-body--column {
+        .dui-body--column {
             padding: 0;
             &.col--actived {
                 padding: 0;

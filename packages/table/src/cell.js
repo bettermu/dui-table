@@ -12,7 +12,7 @@ function renderHelpIcon(h, params) {
     const titlePrefix = column.titlePrefix || column.titleHelp
     return titlePrefix ? [
         h('i', {
-            class: ['vxe-cell-help-icon', titlePrefix.icon || GlobalConfig.icon.TABLE_HELP],
+            class: ['dui-cell-help-icon', titlePrefix.icon || GlobalConfig.icon.TABLE_HELP],
             on: {
                 mouseenter(evnt) {
                     $table.triggerHeaderHelpEvent(evnt, params)
@@ -58,13 +58,13 @@ function renderTitleContent(h, params, content) {
     }
     return [
         type === 'html' && DUtils.isString(content) ? h('span', {
-            class: 'vxe-cell--title',
+            class: 'dui-cell--title',
             domProps: {
                 innerHTML: content
             },
             on: ons
         }) : h('span', {
-            class: 'vxe-cell--title',
+            class: 'dui-cell--title',
             on: ons
         }, content)
     ]
@@ -180,11 +180,11 @@ export const Cell = {
         const cellPlaceholder = editRender ? editRender.placeholder : ''
         return [
             h('span', {
-                class: 'vxe-cell--label'
+                class: 'dui-cell--label'
             }, editRender && eqEmptyValue(cellValue) ? [
                 // 如果设置占位符
                 h('span', {
-                    class: 'vxe-cell--placeholder'
+                    class: 'dui-cell--placeholder'
                 }, UtilTools.formatText(getFuncText(cellPlaceholder), 1))
             ] : UtilTools.formatText(cellValue, 1))
         ]
@@ -195,7 +195,7 @@ export const Cell = {
     renderDefaultFooter(h, params) {
         return [
             h('span', {
-                class: 'vxe-cell--item'
+                class: 'dui-cell--item'
             }, getFooterContent(h, params))
         ]
     },
@@ -229,7 +229,7 @@ export const Cell = {
         }
         return [
             h('div', {
-                class: ['vxe-cell--tree-node', {
+                class: ['dui-cell--tree-node', {
                     'is--active': isAceived
                 }],
                 style: {
@@ -238,16 +238,16 @@ export const Cell = {
             }, [
                 showIcon && ((rowChilds && rowChilds.length) || hasLazyChilds) ? [
                     h('div', {
-                        class: 'vxe-tree--btn-wrapper',
+                        class: 'dui-tree--btn-wrapper',
                         on
                     }, [
                         h('i', {
-                            class: ['vxe-tree--node-btn', isLazyLoaded ? (iconLoaded || GlobalConfig.icon.TABLE_TREE_LOADED) : (isAceived ? (iconOpen || GlobalConfig.icon.TABLE_TREE_OPEN) : (iconClose || GlobalConfig.icon.TABLE_TREE_CLOSE))]
+                            class: ['dui-tree--node-btn', isLazyLoaded ? (iconLoaded || GlobalConfig.icon.TABLE_TREE_LOADED) : (isAceived ? (iconOpen || GlobalConfig.icon.TABLE_TREE_OPEN) : (iconClose || GlobalConfig.icon.TABLE_TREE_CLOSE))]
                         })
                     ])
                 ] : null,
                 h('div', {
-                    class: 'vxe-tree-cell'
+                    class: 'dui-tree-cell'
                 }, cellVNodes)
             ])
         ]
@@ -286,7 +286,7 @@ export const Cell = {
         const titleSlot = slots ? slots.title : null
         return renderTitleContent(h, params, headerSlot ? $table.callSlot(headerSlot, params, h) : [
             h('span', {
-                class: 'vxe-radio--label'
+                class: 'dui-radio--label'
             }, titleSlot ? $table.callSlot(titleSlot, params, h) : UtilTools.formatText(column.getTitle(), 1))
         ])
     },
@@ -322,23 +322,23 @@ export const Cell = {
         if (isVisible) {
             radioVNs.push(
                 h('span', {
-                    class: 'vxe-radio--icon vxe-radio--checked-icon'
+                    class: 'dui-radio--icon dui-radio--checked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-radio--icon vxe-radio--unchecked-icon'
+                    class: 'dui-radio--icon dui-radio--unchecked-icon'
                 })
             )
         }
         if (defaultSlot || labelField) {
             radioVNs.push(
                 h('span', {
-                    class: 'vxe-radio--label'
+                    class: 'dui-radio--label'
                 }, defaultSlot ? $table.callSlot(defaultSlot, radioParams, h) : DUtils.get(row, labelField))
             )
         }
         return [
             h('span', {
-                class: ['vxe-cell--radio', {
+                class: ['dui-cell--radio', {
                     'is--checked': isChecked,
                     'is--disabled': isDisabled
                 }],
@@ -378,13 +378,13 @@ export const Cell = {
         if (checkboxOpts.checkStrictly ? !checkboxOpts.showHeader : checkboxOpts.showHeader === false) {
             return renderTitleContent(h, checkboxParams, [
                 h('span', {
-                    class: 'vxe-checkbox--label'
+                    class: 'dui-checkbox--label'
                 }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle)
             ])
         }
         return renderTitleContent(h, checkboxParams, [
             h('span', {
-                class: ['vxe-cell--checkbox', {
+                class: ['dui-cell--checkbox', {
                     'is--checked': isAllCheckboxSelected,
                     'is--disabled': isAllCheckboxDisabled,
                     'is--indeterminate': isAllCheckboxIndeterminate
@@ -395,17 +395,17 @@ export const Cell = {
                 on
             }, [
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--checked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--checked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--unchecked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--indeterminate-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
                 })
             ].concat(titleSlot || headerTitle ? [
                 h('span', {
-                    class: 'vxe-checkbox--label'
+                    class: 'dui-checkbox--label'
                 }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle)
             ] : []))
         ])
@@ -446,26 +446,26 @@ export const Cell = {
         if (isVisible) {
             checkVNs.push(
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--checked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--checked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--unchecked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--indeterminate-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
                 })
             )
         }
         if (defaultSlot || labelField) {
             checkVNs.push(
                 h('span', {
-                    class: 'vxe-checkbox--label'
+                    class: 'dui-checkbox--label'
                 }, defaultSlot ? $table.callSlot(defaultSlot, checkboxParams, h) : DUtils.get(row, labelField))
             )
         }
         return [
             h('span', {
-                class: ['vxe-cell--checkbox', {
+                class: ['dui-cell--checkbox', {
                     'is--checked': isChecked,
                     'is--disabled': isDisabled,
                     'is--indeterminate': indeterminate
@@ -513,26 +513,26 @@ export const Cell = {
         if (isVisible) {
             checkVNs.push(
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--checked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--checked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--unchecked-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
                 }),
                 h('span', {
-                    class: 'vxe-checkbox--icon vxe-checkbox--indeterminate-icon'
+                    class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
                 })
             )
         }
         if (defaultSlot || labelField) {
             checkVNs.push(
                 h('span', {
-                    class: 'vxe-checkbox--label'
+                    class: 'dui-checkbox--label'
                 }, defaultSlot ? $table.callSlot(defaultSlot, checkboxParams, h) : DUtils.get(row, labelField))
             )
         }
         return [
             h('span', {
-                class: ['vxe-cell--checkbox', {
+                class: ['dui-cell--checkbox', {
                     'is--checked': isChecked,
                     'is--disabled': isDisabled,
                     'is--indeterminate': halfField && !isChecked ? row[halfField] : indeterminate
@@ -567,7 +567,7 @@ export const Cell = {
         }
         return [
             showIcon && (!visibleMethod || visibleMethod(params)) ? h('span', {
-                class: ['vxe-table--expanded', {
+                class: ['dui-table--expanded', {
                     'is--active': isAceived
                 }],
                 on: {
@@ -577,11 +577,11 @@ export const Cell = {
                 }
             }, [
                 h('i', {
-                    class: ['vxe-table--expand-btn', isLazyLoaded ? (iconLoaded || GlobalConfig.icon.TABLE_EXPAND_LOADED) : (isAceived ? (iconOpen || GlobalConfig.icon.TABLE_EXPAND_OPEN) : (iconClose || GlobalConfig.icon.TABLE_EXPAND_CLOSE))]
+                    class: ['dui-table--expand-btn', isLazyLoaded ? (iconLoaded || GlobalConfig.icon.TABLE_EXPAND_LOADED) : (isAceived ? (iconOpen || GlobalConfig.icon.TABLE_EXPAND_OPEN) : (iconClose || GlobalConfig.icon.TABLE_EXPAND_CLOSE))]
                 })
             ]) : null,
             defaultSlot || labelField ? h('span', {
-                class: 'vxe-table--expand-label'
+                class: 'dui-table--expand-label'
             }, defaultSlot ? $table.callSlot(defaultSlot, params, h) : DUtils.get(row, labelField)) : null
         ]
     },
@@ -611,7 +611,7 @@ export const Cell = {
         }
         return [
             h('span', {
-                class: 'vxe-cell--html',
+                class: 'dui-cell--html',
                 domProps: {
                     innerHTML: getDefaultCellLabel(params)
                 }
@@ -642,10 +642,10 @@ export const Cell = {
         const { showIcon, iconAsc, iconDesc } = $table.sortOpts
         return showIcon ? [
             h('span', {
-                class: 'vxe-cell--sort'
+                class: 'dui-cell--sort'
             }, [
                 h('i', {
-                    class: ['vxe-sort--asc-btn', iconAsc || GlobalConfig.icon.TABLE_SORT_ASC, {
+                    class: ['dui-sort--asc-btn', iconAsc || GlobalConfig.icon.TABLE_SORT_ASC, {
                         'sort--active': column.order === 'asc'
                     }],
                     attrs: {
@@ -658,7 +658,7 @@ export const Cell = {
                     }
                 }),
                 h('i', {
-                    class: ['vxe-sort--desc-btn', iconDesc || GlobalConfig.icon.TABLE_SORT_DESC, {
+                    class: ['dui-sort--desc-btn', iconDesc || GlobalConfig.icon.TABLE_SORT_DESC, {
                         'sort--active': column.order === 'desc'
                     }],
                     attrs: {
@@ -686,12 +686,12 @@ export const Cell = {
         const { showIcon, iconNone, iconMatch } = filterOpts
         return showIcon ? [
             h('span', {
-                class: ['vxe-cell--filter', {
+                class: ['dui-cell--filter', {
                     'is--active': filterStore.visible && filterStore.column === column
                 }]
             }, [
                 h('i', {
-                    class: ['vxe-filter--btn', hasFilter ? (iconMatch || GlobalConfig.icon.TABLE_FILTER_MATCH) : (iconNone || GlobalConfig.icon.TABLE_FILTER_NONE)],
+                    class: ['dui-filter--btn', hasFilter ? (iconMatch || GlobalConfig.icon.TABLE_FILTER_MATCH) : (iconNone || GlobalConfig.icon.TABLE_FILTER_NONE)],
                     attrs: {
                         title: GlobalConfig.i18n('vxe.table.filter')
                     },
@@ -721,10 +721,10 @@ export const Cell = {
         }
         return (isEnableConf(editConfig) ? [
                 isRequired && editOpts.showAsterisk ? h('i', {
-                    class: 'vxe-cell--required-icon'
+                    class: 'dui-cell--required-icon'
                 }) : null,
                 isEnableConf(editRender) && editOpts.showIcon ? h('i', {
-                    class: ['vxe-cell--edit-icon', editOpts.icon || GlobalConfig.icon.TABLE_EDIT]
+                    class: ['dui-cell--edit-icon', editOpts.icon || GlobalConfig.icon.TABLE_EDIT]
                 }) : null
             ] : []).concat(Cell.renderDefaultHeader(h, params))
             .concat(sortable || remoteSort ? Cell.renderSortIcon(h, params) : [])
@@ -766,7 +766,7 @@ export const Cell = {
         if (formatter) {
             return [
                 h('span', {
-                    class: 'vxe-cell--label'
+                    class: 'dui-cell--label'
                 }, [getDefaultCellLabel(params)])
             ]
         }

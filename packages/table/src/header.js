@@ -32,8 +32,8 @@ export default {
     },
 
     mounted() {
-        const { $parent: $xetable, $el, $refs, fixedType } = this
-        const { elemStore } = $xetable
+        const { $parent: $duitable, $el, $refs, fixedType } = this
+        const { elemStore } = $duitable
         const prefix = `${fixedType || 'main'}-header-`
         elemStore[`${prefix}wrapper`] = $el
         elemStore[`${prefix}table`] = $refs.table
@@ -44,8 +44,8 @@ export default {
     },
 
     destroyed() {
-        const { $parent: $xetable, fixedType } = this
-        const { elemStore } = $xetable
+        const { $parent: $duitable, fixedType } = this
+        const { elemStore } = $duitable
         const prefix = `${fixedType || 'main'}-header-`
         elemStore[`${prefix}wrapper`] = null
         elemStore[`${prefix}table`] = null
@@ -56,8 +56,8 @@ export default {
     },
 
     render(h) {
-        const { _e, $parent: $xetable, fixedType, headerColumn, fixedColumn } = this
-        const { $listeners: tableListeners, tId, isGroup, resizable, border, columnKey, headerRowClassName, headerCellClassName, headerRowStyle, headerCellStyle, showHeaderOverflow: allColumnHeaderOverflow, headerAlign: allHeaderAlign, align: allAlign, highlightCurrentColumn, currentColumn, scrollXLoad, overflowX, scrollbarWidth, sortOpts, mouseConfig, columnOpts } = $xetable
+        const { _e, $parent: $duitable, fixedType, headerColumn, fixedColumn } = this
+        const { $listeners: tableListeners, tId, isGroup, resizable, border, columnKey, headerRowClassName, headerCellClassName, headerRowStyle, headerCellStyle, showHeaderOverflow: allColumnHeaderOverflow, headerAlign: allHeaderAlign, align: allAlign, highlightCurrentColumn, currentColumn, scrollXLoad, overflowX, scrollbarWidth, sortOpts, mouseConfig, columnOpts } = $duitable
         let { tableColumn } = this
         let headerGroups = headerColumn
             // 如果是使用优化模式
@@ -70,17 +70,17 @@ export default {
             headerGroups = [tableColumn]
         }
         return h('div', {
-            class: ["vxe-table--header-wrapper", fixedType ? `fixed-${fixedType}--wrapper` : 'body--wrapper'],
+            class: ["dui-table--header-wrapper", fixedType ? `fixed-${fixedType}--wrapper` : 'body--wrapper'],
             attrs: {
                 xid: tId
             }
         }, [
             fixedType ? _e() : h('div', {
-                class: 'vxe-body--x-space',
+                class: 'dui-body--x-space',
                 ref: 'xSpace'
             }),
             h('table', {
-                class: "vxe-table--header",
+                class: "dui-table--header",
                 attrs: {
                     xid: tId,
                     cellspacing: 0,
@@ -117,8 +117,8 @@ export default {
                     ref: 'thead'
                 }, headerGroups.map((cols, $rowIndex) => {
                     return h('tr', {
-                        class: ['vxe-header--row', headerRowClassName ? DUtils.isFunction(headerRowClassName) ? headerRowClassName({ $table: $xetable, $rowIndex, fixed: fixedType, type: cellType }) : headerRowClassName : ''],
-                        style: headerRowStyle ? (DUtils.isFunction(headerRowStyle) ? headerRowStyle({ $table: $xetable, $rowIndex, fixed: fixedType, type: cellType }) : headerRowStyle) : null
+                        class: ['dui-header--row', headerRowClassName ? DUtils.isFunction(headerRowClassName) ? headerRowClassName({ $table: $duitable, $rowIndex, fixed: fixedType, type: cellType }) : headerRowClassName : ''],
+                        style: headerRowStyle ? (DUtils.isFunction(headerRowStyle) ? headerRowStyle({ $table: $duitable, $rowIndex, fixed: fixedType, type: cellType }) : headerRowStyle) : null
                     }, cols.map((column, $columnIndex) => {
                         const { type, showHeaderOverflow, headerAlign, align, headerClassName } = column
                         // const { enabled } = tooltipOpts
@@ -132,25 +132,25 @@ export default {
                         let hasEllipsis = showTitle || showTooltip || showEllipsis
                         const thOns = {}
                         const hasFilter = column.filters && column.filters.some(item => item.checked)
-                        const columnIndex = $xetable.getColumnIndex(column)
-                        const _columnIndex = $xetable.getVTColumnIndex(column)
-                        const params = { $table: $xetable, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, fixed: fixedType, type: cellType, isHidden: fixedHiddenColumn, hasFilter }
+                        const columnIndex = $duitable.getColumnIndex(column)
+                        const _columnIndex = $duitable.getVTColumnIndex(column)
+                        const params = { $table: $duitable, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, fixed: fixedType, type: cellType, isHidden: fixedHiddenColumn, hasFilter }
                             // 虚拟滚动不支持动态高度
                         if (scrollXLoad && !hasEllipsis) {
                             showEllipsis = hasEllipsis = true
                         }
                         if (columnOpts.isCurrent || highlightCurrentColumn || tableListeners['header-cell-click'] || sortOpts.trigger === 'cell') {
-                            thOns.click = evnt => $xetable.triggerHeaderCellClickEvent(evnt, params)
+                            thOns.click = evnt => $duitable.triggerHeaderCellClickEvent(evnt, params)
                         }
                         if (tableListeners['header-cell-dblclick']) {
-                            thOns.dblclick = evnt => $xetable.triggerHeaderCellDblclickEvent(evnt, params)
+                            thOns.dblclick = evnt => $duitable.triggerHeaderCellDblclickEvent(evnt, params)
                         }
                         // 按下事件处理
                         if (mouseConfig) {
-                            thOns.mousedown = evnt => $xetable.triggerHeaderCellMousedownEvent(evnt, params)
+                            thOns.mousedown = evnt => $duitable.triggerHeaderCellMousedownEvent(evnt, params)
                         }
                         return h('th', {
-                            class: ['vxe-header--column', column.id, {
+                            class: ['dui-header--column', column.id, {
                                 [`col--${headAlign}`]: headAlign,
                                 [`col--${type}`]: type,
                                 'col--last': $columnIndex === cols.length - 1,
@@ -173,7 +173,7 @@ export default {
                             key: columnKey || columnOpts.useKey || isColGroup ? column.id : $columnIndex
                         }, [
                             h('div', {
-                                class: ['vxe-cell', {
+                                class: ['dui-cell', {
                                     'c--title': showTitle,
                                     'c--tooltip': showTooltip,
                                     'c--ellipsis': showEllipsis
@@ -183,7 +183,7 @@ export default {
                              * 列宽拖动
                              */
                             !fixedHiddenColumn && !isColGroup && (DUtils.isBoolean(column.resizable) ? column.resizable : (columnOpts.resizable || resizable)) ? h('div', {
-                                class: ['vxe-resizable', {
+                                class: ['dui-resizable', {
                                     'is--line': !border || border === 'none'
                                 }],
                                 on: {
@@ -193,7 +193,7 @@ export default {
                         ])
                     }).concat(scrollbarWidth ? [
                         h('th', {
-                            class: 'vxe-header--gutter col--gutter'
+                            class: 'dui-header--gutter col--gutter'
                         })
                     ] : []))
                 }))
@@ -202,7 +202,7 @@ export default {
              * 其他
              */
             h('div', {
-                class: 'vxe-table--header-border-line',
+                class: 'dui-table--header-border-line',
                 ref: 'repair'
             })
         ])
@@ -210,14 +210,14 @@ export default {
 
     methods: {
         uploadColumn() {
-            const { $parent: $xetable } = this
-            this.headerColumn = $xetable.isGroup ? convertToRows(this.tableGroupColumn) : []
+            const { $parent: $duitable } = this
+            this.headerColumn = $duitable.isGroup ? convertToRows(this.tableGroupColumn) : []
         },
 
         resizeMousedown(evnt, params) {
             const { column } = params
-            const { $parent: $xetable, $el, fixedType } = this
-            const { tableBody, leftContainer, rightContainer, resizeBar: resizeBarElem } = $xetable.$refs
+            const { $parent: $duitable, $el, fixedType } = this
+            const { tableBody, leftContainer, rightContainer, resizeBar: resizeBarElem } = $duitable.$refs
             const { target: dragBtnElem, clientX: dragClientX } = evnt
             const cell = params.cell = dragBtnElem.parentNode
             let dragLeft = 0
@@ -273,8 +273,8 @@ export default {
                 resizeBarElem.style.left = `${dragLeft - scrollLeft}px`
             }
 
-            $xetable._isResize = true
-            DomTools.addClass($xetable.$el, 'drag--resize')
+            $duitable._isResize = true
+            DomTools.addClass($duitable.$el, 'drag--resize')
             resizeBarElem.style.display = 'block'
             document.onmousemove = updateEvent
             document.onmouseup = function(evnt) {
@@ -282,18 +282,18 @@ export default {
                 document.onmouseup = domMouseup
                 column.resizeWidth = column.renderWidth + (isRightFixed ? dragPosLeft - dragLeft : dragLeft - dragPosLeft)
                 resizeBarElem.style.display = 'none'
-                $xetable._isResize = false
-                $xetable._lastResizeTime = Date.now()
-                $xetable.analyColumnWidth()
-                $xetable.recalculate(true).then(() => {
-                    $xetable.saveCustomResizable()
-                    $xetable.updateCellAreas()
-                    $xetable.emitEvent('resizable-change', params, evnt)
+                $duitable._isResize = false
+                $duitable._lastResizeTime = Date.now()
+                $duitable.analyColumnWidth()
+                $duitable.recalculate(true).then(() => {
+                    $duitable.saveCustomResizable()
+                    $duitable.updateCellAreas()
+                    $duitable.emitEvent('resizable-change', params, evnt)
                 })
-                DomTools.removeClass($xetable.$el, 'drag--resize')
+                DomTools.removeClass($duitable.$el, 'drag--resize')
             }
             updateEvent(evnt)
-            $xetable.closeMenu()
+            $duitable.closeMenu()
         }
     },
 

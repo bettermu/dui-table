@@ -8,8 +8,8 @@ import { warnLog, errLog } from './tools/log'
 
 export class ColumnInfo {
     /* eslint-disable @typescript-eslint/no-use-before-define */
-    constructor($xetable, _vm, { renderHeader, renderCell, renderFooter, renderData } = {}) {
-        const $xegrid = $xetable.$xegrid
+    constructor($duitable, _vm, { renderHeader, renderCell, renderFooter, renderData } = {}) {
+        const $xegrid = $duitable.$xegrid
         const proxyOpts = $xegrid ? $xegrid.proxyOpts : null
         const formatter = _vm.formatter
         const visible = DUtils.isBoolean(_vm.visible) ? _vm.visible : true
@@ -29,7 +29,7 @@ export class ColumnInfo {
                 warnLog('vxe.error.errConflicts', ['column.cell-render', 'column.edit-render'])
             }
             if (_vm.type === 'expand') {
-                if ($xetable.treeConfig && $xetable.treeOpts.line) {
+                if ($duitable.treeConfig && $duitable.treeOpts.line) {
                     errLog('vxe.error.errConflicts', ['tree-config.line', 'column.type=expand'])
                 }
             }

@@ -1951,7 +1951,7 @@ const Methods = {
                         tableElem.style.width = tWidth ? `${tWidth + scrollbarWidth}px` : ''
                             // 修复 IE 中高度无法自适应问题
                         if (browse.msie) {
-                            DUtils.arrayEach(tableElem.querySelectorAll('.vxe-resizable'), resizeElem => {
+                            DUtils.arrayEach(tableElem.querySelectorAll('.dui-resizable'), resizeElem => {
                                 resizeElem.style.height = `${resizeElem.parentNode.offsetHeight}px`
                             })
                         }
@@ -2102,7 +2102,7 @@ const Methods = {
                             if (listElem) {
                                 DUtils.arrayEach(listElem.querySelectorAll(`.${column.id}`), elem => {
                                     const colspan = parseInt(elem.getAttribute('colspan') || 1)
-                                    const cellElem = elem.querySelector('.vxe-cell')
+                                    const cellElem = elem.querySelector('.dui-cell')
                                     let colWidth = column.renderWidth
                                     if (cellElem) {
                                         if (colspan > 1) {
@@ -2167,12 +2167,12 @@ const Methods = {
         const { actived } = editStore
         const { ctxWrapper, filterWrapper, validTip } = $refs
         if (filterWrapper) {
-            if (getEventTargetNode(evnt, $el, 'vxe-cell--filter').flag) {
+            if (getEventTargetNode(evnt, $el, 'dui-cell--filter').flag) {
                 // 如果点击了筛选按钮
             } else if (getEventTargetNode(evnt, filterWrapper.$el).flag) {
                 // 如果点击筛选容器
             } else {
-                if (!getEventTargetNode(evnt, document.body, 'vxe-table--ignore-clear').flag) {
+                if (!getEventTargetNode(evnt, document.body, 'dui-table--ignore-clear').flag) {
                     this.preventEvent(evnt, 'event.clearFilter', filterStore.args, this.closeFilter)
                 }
             }
@@ -2186,12 +2186,12 @@ const Methods = {
                     if (validTip && getEventTargetNode(evnt, validTip.$el).flag) {
                         // 如果是激活状态，且点击了校验提示框
                     } else if (!this.lastCallTime || this.lastCallTime + 50 < Date.now()) {
-                        if (!getEventTargetNode(evnt, document.body, 'vxe-table--ignore-clear').flag) {
+                        if (!getEventTargetNode(evnt, document.body, 'dui-table--ignore-clear').flag) {
                             // 如果手动调用了激活单元格，避免触发源被移除后导致重复关闭
                             this.preventEvent(evnt, 'event.clearActived', actived.args, () => {
                                 let isClearActived
                                 if (editOpts.mode === 'row') {
-                                    const rowNode = getEventTargetNode(evnt, $el, 'vxe-body--row')
+                                    const rowNode = getEventTargetNode(evnt, $el, 'dui-body--row')
                                         // row 方式，如果点击了不同行
                                     isClearActived = rowNode.flag ? getRowNode(rowNode.targetElem).item !== actived.args.row : false
                                 } else {
@@ -2200,16 +2200,16 @@ const Methods = {
                                 }
                                 // 如果点击表头行，则清除激活状态
                                 if (!isClearActived) {
-                                    isClearActived = getEventTargetNode(evnt, $el, 'vxe-header--row').flag
+                                    isClearActived = getEventTargetNode(evnt, $el, 'dui-header--row').flag
                                 }
                                 // 如果点击表尾行，则清除激活状态
                                 if (!isClearActived) {
-                                    isClearActived = getEventTargetNode(evnt, $el, 'vxe-footer--row').flag
+                                    isClearActived = getEventTargetNode(evnt, $el, 'dui-footer--row').flag
                                 }
                                 // 如果固定了高度且点击了行之外的空白处，则清除激活状态
                                 if (!isClearActived && this.height && !this.overflowY) {
                                     const bodyWrapperElem = evnt.target
-                                    if (hasClass(bodyWrapperElem, 'vxe-table--body-wrapper')) {
+                                    if (hasClass(bodyWrapperElem, 'dui-table--body-wrapper')) {
                                         isClearActived = evnt.offsetY < bodyWrapperElem.clientHeight
                                     }
                                 }
@@ -2228,7 +2228,7 @@ const Methods = {
         } else if (mouseConfig) {
             if (!getEventTargetNode(evnt, $el).flag && !($xegrid && getEventTargetNode(evnt, $xegrid.$el).flag) && !(ctxWrapper && getEventTargetNode(evnt, ctxWrapper.$el).flag) && !($toolbar && getEventTargetNode(evnt, $toolbar.$el).flag)) {
                 this.clearSelected()
-                if (!getEventTargetNode(evnt, document.body, 'vxe-table--ignore-areas-clear').flag) {
+                if (!getEventTargetNode(evnt, document.body, 'dui-table--ignore-areas-clear').flag) {
                     this.preventEvent(evnt, 'event.clearAreas', {}, () => {
                         this.clearCellAreas()
                         this.clearCopyCellArea()
@@ -2609,12 +2609,12 @@ const Methods = {
             let overflowElem
             let tipElem
             if (column.treeNode) {
-                overflowElem = cell.querySelector('.vxe-tree-cell')
+                overflowElem = cell.querySelector('.dui-tree-cell')
                 if (column.type === 'html') {
-                    tipElem = cell.querySelector('.vxe-cell--html')
+                    tipElem = cell.querySelector('.dui-cell--html')
                 }
             } else {
-                tipElem = cell.querySelector(column.type === 'html' ? '.vxe-cell--html' : '.vxe-cell--label')
+                tipElem = cell.querySelector(column.type === 'html' ? '.dui-cell--html' : '.dui-cell--label')
             }
             this.handleTooltip(evnt, cell, overflowElem || cell.children[0], tipElem, params)
         }
@@ -2628,7 +2628,7 @@ const Methods = {
         const cell = evnt.currentTarget
         this.handleTargetEnterEvent(true)
         if (tooltipStore.column !== column || !tooltipStore.visible) {
-            this.handleTooltip(evnt, cell, cell.querySelector('.vxe-cell--item') || cell.children[0], null, params)
+            this.handleTooltip(evnt, cell, cell.querySelector('.dui-cell--item') || cell.children[0], null, params)
         }
     },
     /**
@@ -3351,7 +3351,7 @@ const Methods = {
     clearHoverRow() {
         const { $el } = this
         if ($el) {
-            DUtils.arrayEach($el.querySelectorAll('.vxe-body--row.row--hover'), elem => removeClass(elem, 'row--hover'))
+            DUtils.arrayEach($el.querySelectorAll('.dui-body--row.row--hover'), elem => removeClass(elem, 'row--hover'))
         }
         this.hoverRow = null
     },
@@ -3360,8 +3360,8 @@ const Methods = {
         const { column } = params
         const cell = evnt.currentTarget
         const triggerResizable = _lastResizeTime && _lastResizeTime > Date.now() - 300
-        const triggerSort = getEventTargetNode(evnt, cell, 'vxe-cell--sort').flag
-        const triggerFilter = getEventTargetNode(evnt, cell, 'vxe-cell--filter').flag
+        const triggerSort = getEventTargetNode(evnt, cell, 'dui-cell--sort').flag
+        const triggerFilter = getEventTargetNode(evnt, cell, 'dui-cell--filter').flag
         if (sortOpts.trigger === 'cell' && !(triggerResizable || triggerSort || triggerFilter)) {
             this.triggerSortEvent(evnt, column, getNextSortOrder(this, column))
         }
@@ -3430,10 +3430,10 @@ const Methods = {
         const isCheckboxType = type === 'checkbox'
         const isExpandType = type === 'expand'
         const cell = evnt.currentTarget
-        const triggerRadio = isRadioType && getEventTargetNode(evnt, cell, 'vxe-cell--radio').flag
-        const triggerCheckbox = isCheckboxType && getEventTargetNode(evnt, cell, 'vxe-cell--checkbox').flag
-        const triggerTreeNode = treeNode && getEventTargetNode(evnt, cell, 'vxe-tree--btn-wrapper').flag
-        const triggerExpandNode = isExpandType && getEventTargetNode(evnt, cell, 'vxe-table--expanded').flag
+        const triggerRadio = isRadioType && getEventTargetNode(evnt, cell, 'dui-cell--radio').flag
+        const triggerCheckbox = isCheckboxType && getEventTargetNode(evnt, cell, 'dui-cell--checkbox').flag
+        const triggerTreeNode = treeNode && getEventTargetNode(evnt, cell, 'dui-tree--btn-wrapper').flag
+        const triggerExpandNode = isExpandType && getEventTargetNode(evnt, cell, 'dui-table--expanded').flag
         params = Object.assign({ cell, triggerRadio, triggerCheckbox, triggerTreeNode, triggerExpandNode }, params)
         if (!triggerCheckbox && !triggerRadio) {
             // 如果是展开行
@@ -4265,9 +4265,9 @@ const Methods = {
         if (tableBodyElem) {
             const tableHeaderElem = tableHeader ? tableHeader.$el : null
             const tableFooterElem = tableFooter ? tableFooter.$el : null
-            const headerElem = tableHeaderElem ? tableHeaderElem.querySelector('.vxe-table--header') : null
-            const bodyElem = tableBodyElem.querySelector('.vxe-table--body')
-            const footerElem = tableFooterElem ? tableFooterElem.querySelector('.vxe-table--footer') : null
+            const headerElem = tableHeaderElem ? tableHeaderElem.querySelector('.dui-table--header') : null
+            const bodyElem = tableBodyElem.querySelector('.dui-table--body')
+            const footerElem = tableFooterElem ? tableFooterElem.querySelector('.dui-table--footer') : null
             const leftSpaceWidth = visibleColumn.slice(0, scrollXStore.startIndex).reduce((previous, column) => previous + column.renderWidth, 0)
             let marginLeft = ''
             if (scrollXLoad) {
@@ -4585,7 +4585,7 @@ const Methods = {
         const rowid = getRowid(this, row)
         const bodyElem = $refs[`${column.fixed || 'table'}Body`] || $refs.tableBody
         if (bodyElem && bodyElem.$el) {
-            return bodyElem.$el.querySelector(`.vxe-body--row[rowid="${rowid}"] .${column.id}`)
+            return bodyElem.$el.querySelector(`.dui-body--row[rowid="${rowid}"] .${column.id}`)
         }
         return null
     },
