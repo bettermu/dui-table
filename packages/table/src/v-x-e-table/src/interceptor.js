@@ -1,5 +1,5 @@
 import DUtils from '../../tools/d-utils.umd.min'
-//import { warnLog } from '../../tools/log'
+import { warnLog } from '../../tools/log'
 
 function toType(type) {
     return DUtils.toValueString(type).replace('_', '').toLowerCase()
@@ -22,7 +22,7 @@ export const interceptor = {
         // 检测类型
         if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
             if (eventTypes.indexOf(type) === -1) {
-                //warnLog('vxe.error.errProp', [`Interceptor.${type}`, eventTypes.join('|')])
+                warnLog('vxe.error.errProp', [`Interceptor.${type}`, eventTypes.join('|')])
             }
         }
 
@@ -35,7 +35,7 @@ export const interceptor = {
             // 检测重复
             if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
                 if (eList.indexOf(callback) > -1) {
-                    //warnLog('vxe.error.coverProp', ['Interceptor', type])
+                    warnLog('vxe.error.coverProp', ['Interceptor', type])
                 }
             }
 

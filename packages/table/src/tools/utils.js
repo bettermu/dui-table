@@ -1,7 +1,7 @@
 /* eslint-disable */
 import DUtils from '../tools/d-utils.umd.min'
 import GlobalConfig from '../v-x-e-table/src/conf'
-//import { warnLog, errLog } from '../tools/log'
+import { warnLog, errLog } from './log'
 
 let zindexIndex = 0
 let lastZindex = 1
@@ -59,9 +59,9 @@ export const UtilTools = {
         if (groupConfig) {
             if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
                 if ($duicolumn.$options._componentTag === 'vxe-table-column') {
-                    //errLog('vxe.error.groupTag', [`<vxe-table-colgroup title=${$duicolumn.title} ...>`, `<vxe-table-column title=${$duicolumn.title} ...>`])
+                    errLog('vxe.error.groupTag', [`<vxe-table-colgroup title=${$duicolumn.title} ...>`, `<vxe-table-column title=${$duicolumn.title} ...>`])
                 } else if ($duicolumn.$options._componentTag === 'vxe-column') {
-                    //warnLog('vxe.error.groupTag', [`<vxe-colgroup title=${$duicolumn.title} ...>`, `<vxe-column title=${$duicolumn.title} ...>`])
+                    warnLog('vxe.error.groupTag', [`<vxe-colgroup title=${$duicolumn.title} ...>`, `<vxe-column title=${$duicolumn.title} ...>`])
                 }
             }
             if (!groupConfig.children) {

@@ -149,7 +149,6 @@ export default {
                         if (mouseConfig) {
                             thOns.mousedown = evnt => $duitable.triggerHeaderCellMousedownEvent(evnt, params)
                         }
-                        console.log(column)
                         return h('th', {
                             class: ['dui-header--column', column.id, {
                                 [`col--${headAlign}`]: headAlign,

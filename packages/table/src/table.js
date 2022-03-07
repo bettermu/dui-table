@@ -8,6 +8,7 @@ import DUtils from './tools/d-utils.umd.min'
 import { isEnableConf, getFuncText } from './tools/utils'
 import { GlobalEvent } from './tools/event'
 import methods from './methods'
+import { warnLog } from './tools/log'
 
 export default {
     name: 'DuiTable',
@@ -546,7 +547,7 @@ export default {
                     this.handleInitDefaults()
                 }
                 if ((this.scrollXLoad || this.scrollYLoad) && this.expandColumn) {
-                    //warnLog('vxe.error.scrollErrProp', ['column.type=expand'])
+                    warnLog('vxe.error.scrollErrProp', ['column.type=expand'])
                 }
                 this.recalculate()
             })

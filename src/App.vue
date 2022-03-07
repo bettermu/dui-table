@@ -26,7 +26,10 @@
     </dui-table>
 
     <dui-table
-          :data="tableData">
+          :data="tableData"
+          @checkbox-change="checkboxChangeEvent"
+          @checkbox-all="checkboxAllEvent"
+          >
           <dui-table-column type="seq" width="60"></dui-table-column>
           <dui-table-column type="radio" width="60"></dui-table-column>
           <dui-table-column type="checkbox" width="60"></dui-table-column>
@@ -75,6 +78,13 @@ export default {
   methods:{
     cellClickEvent (data) {
       console.log('单元格点击事件', data)
+    },
+    checkboxAllEvent(data){
+      console.log('全选事件', data)
+    },
+    checkboxChangeEvent(data){
+      
+      console.log('多选框事件',data)
     },
     radioChangeEvent ({ row }) {
       this.selectRow = row

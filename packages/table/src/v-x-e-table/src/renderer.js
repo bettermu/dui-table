@@ -1,7 +1,7 @@
 import DUtils from '../../tools/d-utils.umd.min'
 import GlobalConfig from '../../v-x-e-table/src/conf'
 import UtilTools, { getFuncText } from '../../tools/utils'
-//import { warnLog } from '../../tools/log'
+import { warnLog } from '../../tools/log'
 
 const defaultCompProps = { transfer: true }
 
@@ -679,7 +679,7 @@ export const renderer = {
                 if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
                     DUtils.each(options, (val, key) => {
                         if (!DUtils.eqNull(renders[key]) && renders[key] !== val) {
-                            //warnLog('vxe.error.coverProp', [`Renderer.${name}`, key])
+                            warnLog('vxe.error.coverProp', [`Renderer.${name}`, key])
                         }
                     })
                 }

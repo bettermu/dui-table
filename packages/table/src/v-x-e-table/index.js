@@ -8,7 +8,7 @@
  import { formats } from './src/formats'
  import { setup } from './src/setup'
  import { UtilTools } from '../tools/utils'
- //import { errLog } from '../tools/log'
+ import { errLog } from '../tools/log'
 
  const installedPlugins = []
 
@@ -31,7 +31,7 @@
      // 检测安装顺序是否正确
      if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
          if (VXETable.Table) {
-             //errLog('vxe.error.useErr', [key])
+             errLog('vxe.error.useErr', [key])
          }
      }
      VXETable[`_${key}`] = 1
