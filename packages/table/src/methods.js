@@ -341,8 +341,9 @@ const Methods = {
     },
     updateScrollYStatus(fullData) {
         const { treeConfig, treeOpts, sYOpts } = this
+
         const { transform } = treeOpts
-        const scrollYLoad = (transform || !treeConfig) && !!sYOpts.enabled && sYOpts.gt > -1 && sYOpts.gt < fullData.length
+        const scrollYLoad = (transform || !treeConfig) && !!sYOpts.enabled && sYOpts.gt > -1 && sYOpts.gt < fullData.length && this.virtualScrollable
         this.scrollYLoad = scrollYLoad
         return scrollYLoad
     },

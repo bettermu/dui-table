@@ -162,6 +162,10 @@ export default {
         emptyRender: [Boolean, Object],
         // 自定义列配置项
         customConfig: [Boolean, Object],
+
+        // 是否开启虚拟滚动
+        virtualScrollable: { type: Boolean, default: () => false },
+
         // 横向虚拟滚动配置项
         scrollX: Object,
         // 纵向虚拟滚动配置项
