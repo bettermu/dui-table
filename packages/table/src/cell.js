@@ -322,29 +322,47 @@ export const Cell = {
         if (isVisible) {
             radioVNs.push(
                 h('span', {
-                    class: 'dui-radio--icon dui-radio--checked-icon'
+                    class: 'q-radio__inner'
                 }),
-                h('span', {
-                    class: 'dui-radio--icon dui-radio--unchecked-icon'
-                })
+                h('input', {
+                    type: 'radio',
+                    tabindex: -1,
+                    class: 'q-radio__original'
+                }),
+                // h('span', {
+                //     class: 'dui-radio--icon dui-radio--checked-icon'
+                // }),
+                // h('span', {
+                //     class: 'dui-radio--icon dui-radio--unchecked-icon'
+                // })
             )
         }
+        // if (defaultSlot || labelField) {
+        //     radioVNs.push(
+        //         h('span', {
+        //             class: 'dui-radio--label'
+        //         }, defaultSlot ? $table.callSlot(defaultSlot, radioParams, h) : DUtils.get(row, labelField))
+        //     )
+        // }
+        let nodeArr = [
+
+            h('span', {
+                class: ['q-radio__input', {
+                    'is-checked': isChecked,
+                    'is-disabled': isDisabled
+                }],
+                on,
+            }, radioVNs)
+        ]
+
         if (defaultSlot || labelField) {
-            radioVNs.push(
+            nodeArr.push(
                 h('span', {
                     class: 'dui-radio--label'
                 }, defaultSlot ? $table.callSlot(defaultSlot, radioParams, h) : DUtils.get(row, labelField))
             )
         }
-        return [
-            h('span', {
-                class: ['dui-cell--radio', {
-                    'is--checked': isChecked,
-                    'is--disabled': isDisabled
-                }],
-                on
-            }, radioVNs)
-        ]
+        return nodeArr
     },
     renderTreeRadioCell(h, params) {
         return Cell.renderTreeIcon(h, params, Cell.renderRadioCell(h, params))

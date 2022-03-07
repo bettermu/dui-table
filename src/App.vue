@@ -50,21 +50,6 @@
           <dui-table-column field="age" title="Age"></dui-table-column>
           <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
         </dui-table>
-
-        <dui-table
-          :data="tableData">
-          <dui-table-column type="seq" width="60"></dui-table-column>
-          <dui-table-column type="radio" width="60"></dui-table-column>
-          <dui-table-column type="checkbox" width="60"></dui-table-column>
-          <dui-table-column field="name" title="Name"></dui-table-column>
-          <dui-table-column field="age" title="Age" sortable></dui-table-column>
-          <dui-table-column field="sex" title="Sex" :filters="[{value:'0',label:'女'},{value:'1',label:'男'}]"></dui-table-column>
-          <dui-table-column field="sex2" title="Sex2" sortable :filters="[{value:'0',label:'女'},{value:'1',label:'男'}]" :filter-multiple="false"></dui-table-column>
-          <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
-        </dui-table>
-
-
-        
   </div>
 </template>
 
