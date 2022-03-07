@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { DuiTable, DuiTableColumn } from '../packages/all'
 
-import '@vislab/DUI/dist/css/dark-blue.min.css'
+import '@vislab/DUI/dist/css/light-blue.min.css'
 
 import '../styles/table.scss'
 

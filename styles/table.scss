@@ -2,7 +2,7 @@
 
 @import './variable.scss';
 @import './mixin.scss';
-@import './checked.scss';
+// @import './checked.scss';
 @import './common.scss';
 @import './loading.scss';
 %DefaultColumnHeight {
@@ -699,25 +699,25 @@
         color: $vxe-table-cell-placeholder-color;
     }
     // 单选框和复选框
-    .dui-cell--radio {
-        @extend %XERadio;
-    }
-    .dui-cell--checkbox {
-        @extend %XECheckbox;
-    }
-    .dui-cell--radio .dui-radio--icon,
-    .dui-cell--checkbox .dui-checkbox--icon {
-        left: 0;
-        top: 0.1em;
-    }
-    .dui-cell--radio .dui-radio--label,
-    .dui-cell--checkbox .dui-checkbox--label {
-        padding-left: 0.5em;
-    }
-    .dui-cell--radio,
-    .dui-cell--checkbox {
-        padding-left: 1.2em;
-    }
+    // .dui-cell--radio {
+    //     @extend %XERadio;
+    // }
+    // .dui-cell--checkbox {
+    //     @extend %XECheckbox;
+    // }
+    // .dui-cell--radio .dui-radio--icon,
+    // .dui-cell--checkbox .dui-checkbox--icon {
+    //     left: 0;
+    //     top: 0.1em;
+    // }
+    // .dui-cell--radio .dui-radio--label,
+    // .dui-cell--checkbox .dui-checkbox--label {
+    //     padding-left: 0.5em;
+    // }
+    // .dui-cell--radio,
+    // .dui-cell--checkbox {
+    //     padding-left: 1.2em;
+    // }
     .fixed--hidden {
         visibility: hidden;
     }
