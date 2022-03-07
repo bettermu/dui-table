@@ -325,8 +325,10 @@ export const Cell = {
                     class: 'q-radio__inner'
                 }),
                 h('input', {
-                    type: 'radio',
-                    tabindex: -1,
+                    attrs: {
+                        type: 'radio',
+                        tabindex: -1,
+                    },
                     class: 'q-radio__original'
                 }),
                 // h('span', {
@@ -400,33 +402,81 @@ export const Cell = {
                 }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle)
             ])
         }
-        return renderTitleContent(h, checkboxParams, [
+
+        let nodeArr = [
             h('span', {
-                class: ['dui-cell--checkbox', {
-                    'is--checked': isAllCheckboxSelected,
-                    'is--disabled': isAllCheckboxDisabled,
-                    'is--indeterminate': isAllCheckboxIndeterminate
+                class: ['q-checkbox__input', {
+                    'is-checked': isAllCheckboxSelected,
+                    'is-disabled': isAllCheckboxDisabled,
+                    'is-indeterminate': isAllCheckboxIndeterminate
                 }],
-                attrs: {
-                    title: GlobalConfig.i18n('vxe.table.allTitle')
-                },
                 on
             }, [
                 h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--checked-icon'
+                    class: 'q-checkbox__inner'
                 }),
-                h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
-                }),
-                h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
+                h('input', {
+                    attrs: {
+                        type: 'checkbox'
+                    },
+                    class: 'q-checkbox__original'
                 })
-            ].concat(titleSlot || headerTitle ? [
-                h('span', {
-                    class: 'dui-checkbox--label'
-                }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle)
-            ] : []))
-        ])
+            ])
+        ]
+
+        if (titleSlot || headerTitle) {
+            nodeArr.push(h('span', {
+                class: 'q-checkbox__label'
+            }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle))
+        }
+        return renderTitleContent(h, checkboxParams, nodeArr)
+            // return renderTitleContent(h, checkboxParams, [
+
+        //     h('span', {
+        //         class: ['q-checkbox__input', {
+        //             'is-checked': isAllCheckboxSelected,
+        //             'is-disabled': isAllCheckboxDisabled,
+        //             'is-indeterminate': isAllCheckboxIndeterminate
+        //         }],
+        //         on
+        //     },[
+        //         h('span',{
+        //             class:'q-checkbox__inner'
+        //         }),
+        //         h('input',{
+        //             attrs:{
+        //                 type:'checkbox'
+        //             },
+        //             class:'q-checkbox__original'
+        //         })
+        //     ]),
+        //     //q-checkbox__label
+        //     h('span', {
+        //         class: ['dui-cell--checkbox', {
+        //             'is--checked': isAllCheckboxSelected,
+        //             'is--disabled': isAllCheckboxDisabled,
+        //             'is--indeterminate': isAllCheckboxIndeterminate
+        //         }],
+        //         attrs: {
+        //             title: GlobalConfig.i18n('vxe.table.allTitle')
+        //         },
+        //         on
+        //     }, [
+        //         h('span', {
+        //             class: 'dui-checkbox--icon dui-checkbox--checked-icon'
+        //         }),
+        //         h('span', {
+        //             class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
+        //         }),
+        //         h('span', {
+        //             class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
+        //         })
+        //     ].concat(titleSlot || headerTitle ? [
+        //         h('span', {
+        //             class: 'dui-checkbox--label'
+        //         }, titleSlot ? $table.callSlot(titleSlot, checkboxParams, h) : headerTitle)
+        //     ] : []))
+        // ])
     },
     renderCheckboxCell(h, params) {
         const { $table, row, column, isHidden } = params
@@ -464,33 +514,43 @@ export const Cell = {
         if (isVisible) {
             checkVNs.push(
                 h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--checked-icon'
+                    class: 'q-checkbox__inner'
                 }),
-                h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
-                }),
-                h('span', {
-                    class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
+                h('input', {
+                    attrs: {
+                        type: 'checkbox'
+                    },
+                    class: 'q-checkbox__original'
                 })
+                // h('span', {
+                //     class: 'dui-checkbox--icon dui-checkbox--checked-icon'
+                // }),
+                // h('span', {
+                //     class: 'dui-checkbox--icon dui-checkbox--unchecked-icon'
+                // }),
+                // h('span', {
+                //     class: 'dui-checkbox--icon dui-checkbox--indeterminate-icon'
+                // })
             )
         }
-        if (defaultSlot || labelField) {
-            checkVNs.push(
-                h('span', {
-                    class: 'dui-checkbox--label'
-                }, defaultSlot ? $table.callSlot(defaultSlot, checkboxParams, h) : DUtils.get(row, labelField))
-            )
-        }
-        return [
+        let nodeArr = [
             h('span', {
-                class: ['dui-cell--checkbox', {
-                    'is--checked': isChecked,
-                    'is--disabled': isDisabled,
-                    'is--indeterminate': indeterminate
+                class: ['q-checkbox__input', {
+                    'is-checked': isChecked,
+                    'is-disabled': isDisabled,
+                    'is-indeterminate': indeterminate
                 }],
                 on
             }, checkVNs)
         ]
+        if (defaultSlot || labelField) {
+            nodeArr.push(
+                h('span', {
+                    class: 'q-checkbox__label'
+                }, defaultSlot ? $table.callSlot(defaultSlot, checkboxParams, h) : DUtils.get(row, labelField))
+            )
+        }
+        return nodeArr
     },
     renderTreeSelectionCell(h, params) {
         return Cell.renderTreeIcon(h, params, Cell.renderCheckboxCell(h, params))
