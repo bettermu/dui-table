@@ -1,12 +1,22 @@
 /**Variable**/
 
 @import './variable.scss';
-@import './mixin.scss';
+//@import './mixin.scss';
 // @import './checked.scss';
-@import './common.scss';
-@import './loading.scss';
+//@import './common.scss';
+//@import './loading.scss';
 %DefaultColumnHeight {
     height: $vxe-table-row-height-default;
+}
+
+%boxSizing {
+    box-sizing: border-box;
+}
+
+%TextEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 %MediumColumnHeight {
@@ -55,62 +65,62 @@
 
 .dui-cell,
 .dui-table--filter-wrapper {
-    .dui-default-input,
-    .dui-default-textarea {
-        background-color: $vxe-table-body-background-color;
-    }
-    .dui-default-input,
-    .dui-default-textarea,
-    .dui-default-select {
-        outline: 0;
-        padding: 0 2px;
-        width: 100%;
-        color: $vxe-table-font-color;
-        border-radius: $vxe-border-radius;
-        border: 1px solid $vxe-input-border-color;
-        &:focus {
-            border: 1px solid $vxe-primary-color;
-        }
-        &[disabled] {
-            cursor: not-allowed;
-            background-color: $vxe-input-disabled-background-color;
-        }
-    }
-    .dui-default-input,
-    .dui-default-textarea,
-    .dui-default-select {
-        height: $vxe-input-height-default;
-    }
-    .dui-default-input {
-        &[type="date"]::-webkit-inner-spin-button {
-            margin-top: 4px;
-        }
-        &[type="date"]::-webkit-inner-spin-button,
-        &[type="number"]::-webkit-inner-spin-button {
-            height: 24px;
-        }
-        &::placeholder {
-            color: $vxe-input-placeholder-color;
-        }
-    }
-    .dui-default-textarea {
-        resize: none;
-        vertical-align: middle;
-    }
-    .dui-input,
-    .dui-textarea,
-    .dui-select {
-        width: 100%;
-        display: block;
-    }
-    .dui-input>.dui-input--inner,
-    .dui-textarea>.dui-textarea--inner {
-        padding: 0 2px;
-    }
-    .dui-textarea--inner,
-    .dui-default-textarea {
-        resize: none;
-    }
+    // .dui-default-input,
+    // .dui-default-textarea {
+    //     background-color: $vxe-table-body-background-color;
+    // }
+    // .dui-default-input,
+    // .dui-default-textarea,
+    // .dui-default-select {
+    //     outline: 0;
+    //     padding: 0 2px;
+    //     width: 100%;
+    //     color: $vxe-table-font-color;
+    //     border-radius: $vxe-border-radius;
+    //     border: 1px solid $vxe-input-border-color;
+    //     &:focus {
+    //         border: 1px solid $vxe-primary-color;
+    //     }
+    //     &[disabled] {
+    //         cursor: not-allowed;
+    //         background-color: $vxe-input-disabled-background-color;
+    //     }
+    // }
+    // .dui-default-input,
+    // .dui-default-textarea,
+    // .dui-default-select {
+    //     height: $vxe-input-height-default;
+    // }
+    // .dui-default-input {
+    //     &[type="date"]::-webkit-inner-spin-button {
+    //         margin-top: 4px;
+    //     }
+    //     &[type="date"]::-webkit-inner-spin-button,
+    //     &[type="number"]::-webkit-inner-spin-button {
+    //         height: 24px;
+    //     }
+    //     &::placeholder {
+    //         color: $vxe-input-placeholder-color;
+    //     }
+    // }
+    // .dui-default-textarea {
+    //     resize: none;
+    //     vertical-align: middle;
+    // }
+    // .dui-input,
+    // .dui-textarea,
+    // .dui-select {
+    //     width: 100%;
+    //     display: block;
+    // }
+    // .dui-input>.dui-input--inner,
+    // .dui-textarea>.dui-textarea--inner {
+    //     padding: 0 2px;
+    // }
+    // .dui-textarea--inner,
+    // .dui-default-textarea {
+    //     resize: none;
+    // }
 }
 
 .dui-table--checkbox-range,
@@ -610,84 +620,84 @@
             border-top: 0;
         }
     }
-    &.size--medium {
-        font-size: $vxe-font-size-medium;
-        .dui-table--empty-placeholder,
-        .dui-table--empty-block {
-            min-height: $vxe-table-row-height-medium;
-        }
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &:not(.col--ellipsis) {
-                padding: $vxe-table-column-padding-medium;
-            }
-        }
-        .dui-cell {
-            .dui-default-input,
-            .dui-default-textarea,
-            .dui-default-select {
-                height: $vxe-input-height-medium;
-            }
-            .dui-default-input {
-                &[type="date"]::-webkit-inner-spin-button {
-                    margin-top: 3px;
-                }
-            }
-        }
-    }
-    &.size--small {
-        font-size: $vxe-font-size-small;
-        .dui-table--empty-placeholder,
-        .dui-table--empty-block {
-            min-height: $vxe-table-row-height-small;
-        }
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &:not(.col--ellipsis) {
-                padding: $vxe-table-column-padding-small;
-            }
-        }
-        .dui-cell {
-            .dui-default-input,
-            .dui-default-textarea,
-            .dui-default-select {
-                height: $vxe-input-height-small;
-            }
-            .dui-default-input {
-                &[type="date"]::-webkit-inner-spin-button {
-                    margin-top: 2px;
-                }
-            }
-        }
-    }
-    &.size--mini {
-        font-size: $vxe-font-size-mini;
-        .dui-table--empty-placeholder,
-        .dui-table--empty-block {
-            min-height: $vxe-table-row-height-mini;
-        }
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &:not(.col--ellipsis) {
-                padding: $vxe-table-column-padding-mini;
-            }
-        }
-        .dui-cell {
-            .dui-default-input,
-            .dui-default-textarea,
-            .dui-default-select {
-                height: $vxe-input-height-mini;
-            }
-            .dui-default-input {
-                &[type="date"]::-webkit-inner-spin-button {
-                    margin-top: 1px;
-                }
-            }
-        }
-    }
+    // &.size--medium {
+    //     font-size: $vxe-font-size-medium;
+    //     .dui-table--empty-placeholder,
+    //     .dui-table--empty-block {
+    //         min-height: $vxe-table-row-height-medium;
+    //     }
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &:not(.col--ellipsis) {
+    //             padding: $vxe-table-column-padding-medium;
+    //         }
+    //     }
+    //     .dui-cell {
+    //         .dui-default-input,
+    //         .dui-default-textarea,
+    //         .dui-default-select {
+    //             height: $vxe-input-height-medium;
+    //         }
+    //         .dui-default-input {
+    //             &[type="date"]::-webkit-inner-spin-button {
+    //                 margin-top: 3px;
+    //             }
+    //         }
+    //     }
+    // }
+    // &.size--small {
+    //     font-size: $vxe-font-size-small;
+    //     .dui-table--empty-placeholder,
+    //     .dui-table--empty-block {
+    //         min-height: $vxe-table-row-height-small;
+    //     }
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &:not(.col--ellipsis) {
+    //             padding: $vxe-table-column-padding-small;
+    //         }
+    //     }
+    //     .dui-cell {
+    //         .dui-default-input,
+    //         .dui-default-textarea,
+    //         .dui-default-select {
+    //             height: $vxe-input-height-small;
+    //         }
+    //         .dui-default-input {
+    //             &[type="date"]::-webkit-inner-spin-button {
+    //                 margin-top: 2px;
+    //             }
+    //         }
+    //     }
+    // }
+    // &.size--mini {
+    //     font-size: $vxe-font-size-mini;
+    //     .dui-table--empty-placeholder,
+    //     .dui-table--empty-block {
+    //         min-height: $vxe-table-row-height-mini;
+    //     }
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &:not(.col--ellipsis) {
+    //             padding: $vxe-table-column-padding-mini;
+    //         }
+    //     }
+    //     .dui-cell {
+    //         .dui-default-input,
+    //         .dui-default-textarea,
+    //         .dui-default-select {
+    //             height: $vxe-input-height-mini;
+    //         }
+    //         .dui-default-input {
+    //             &[type="date"]::-webkit-inner-spin-button {
+    //                 margin-top: 1px;
+    //             }
+    //         }
+    //     }
+    // }
     .dui-cell {
         white-space: pre-line;
         word-break: break-all;
@@ -918,21 +928,21 @@
         .dui-body--column {
             @extend %DefaultColumnHeight;
         }
-        &.size--medium {
-            .dui-body--column {
-                @extend %MediumColumnHeight;
-            }
-        }
-        &.size--small {
-            .dui-body--column {
-                @extend %SmallColumnHeight;
-            }
-        }
-        &.size--mini {
-            .dui-body--column {
-                @extend %MiniColumnHeight;
-            }
-        }
+        // &.size--medium {
+        //     .dui-body--column {
+        //         @extend %MediumColumnHeight;
+        //     }
+        // }
+        // &.size--small {
+        //     .dui-body--column {
+        //         @extend %SmallColumnHeight;
+        //     }
+        // }
+        // &.size--mini {
+        //     .dui-body--column {
+        //         @extend %MiniColumnHeight;
+        //     }
+        // }
     }
     /*溢出列*/
     .dui-header--column,
@@ -950,60 +960,60 @@
             }
         }
     }
-    &.size--medium {
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &.col--ellipsis {
-                @extend %MediumColumnHeight;
-                &>.dui-cell {
-                    max-height: $vxe-table-row-height-medium;
-                }
-            }
-        }
-        .dui-cell--checkbox .dui-checkbox--icon {
-            font-size: $vxe-checkbox-font-size-medium;
-        }
-        .dui-cell--radio .dui-radio--icon {
-            font-size: $vxe-radio-font-size-medium;
-        }
-    }
-    &.size--small {
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &.col--ellipsis {
-                @extend %SmallColumnHeight;
-                &>.dui-cell {
-                    max-height: $vxe-table-row-height-small;
-                }
-            }
-        }
-        .dui-cell--checkbox .dui-checkbox--icon {
-            font-size: $vxe-checkbox-font-size-small;
-        }
-        .dui-cell--radio .dui-radio--icon {
-            font-size: $vxe-radio-font-size-small;
-        }
-    }
-    &.size--mini {
-        .dui-header--column,
-        .dui-body--column,
-        .dui-footer--column {
-            &.col--ellipsis {
-                @extend %MiniColumnHeight;
-                &>.dui-cell {
-                    max-height: $vxe-table-row-height-mini;
-                }
-            }
-        }
-        .dui-cell--checkbox .dui-checkbox--icon {
-            font-size: $vxe-checkbox-font-size-mini;
-        }
-        .dui-cell--radio .dui-radio--icon {
-            font-size: $vxe-radio-font-size-mini;
-        }
-    }
+    // &.size--medium {
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &.col--ellipsis {
+    //             @extend %MediumColumnHeight;
+    //             &>.dui-cell {
+    //                 max-height: $vxe-table-row-height-medium;
+    //             }
+    //         }
+    //     }
+    //     .dui-cell--checkbox .dui-checkbox--icon {
+    //         font-size: $vxe-checkbox-font-size-medium;
+    //     }
+    //     .dui-cell--radio .dui-radio--icon {
+    //         font-size: $vxe-radio-font-size-medium;
+    //     }
+    // }
+    // &.size--small {
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &.col--ellipsis {
+    //             @extend %SmallColumnHeight;
+    //             &>.dui-cell {
+    //                 max-height: $vxe-table-row-height-small;
+    //             }
+    //         }
+    //     }
+    //     .dui-cell--checkbox .dui-checkbox--icon {
+    //         font-size: $vxe-checkbox-font-size-small;
+    //     }
+    //     .dui-cell--radio .dui-radio--icon {
+    //         font-size: $vxe-radio-font-size-small;
+    //     }
+    // }
+    // &.size--mini {
+    //     .dui-header--column,
+    //     .dui-body--column,
+    //     .dui-footer--column {
+    //         &.col--ellipsis {
+    //             @extend %MiniColumnHeight;
+    //             &>.dui-cell {
+    //                 max-height: $vxe-table-row-height-mini;
+    //             }
+    //         }
+    //     }
+    //     .dui-cell--checkbox .dui-checkbox--icon {
+    //         font-size: $vxe-checkbox-font-size-mini;
+    //     }
+    //     .dui-cell--radio .dui-radio--icon {
+    //         font-size: $vxe-radio-font-size-mini;
+    //     }
+    // }
     /*暂无数据*/
     .dui-table--empty-placeholder,
     .dui-table--empty-block {
@@ -1047,36 +1057,36 @@
         &.col--selected {
             position: relative;
         }
-        &.col--valid-error {
-            .dui-cell--valid {
-                width: 320px;
-                position: absolute;
-                bottom: calc(100% + 4px);
-                left: 50%;
-                transform: translateX(-50%);
-                text-align: center;
-                pointer-events: none;
-                z-index: 4;
-                .dui-cell--valid-msg {
-                    display: inline-block;
-                    border-radius: $vxe-border-radius;
-                    padding: 8px 12px;
-                    color: $vxe-table-validate-tooltip-error-color;
-                    background-color: $vxe-table-validate-tooltip-error-background-color;
-                    pointer-events: auto;
-                }
-            }
-            .dui-default-input,
-            .dui-default-textarea,
-            .dui-default-select {
-                border-color: $vxe-table-validate-error-color;
-            }
-            .dui-input {
-                >.dui-input--inner {
-                    border-color: $vxe-table-validate-error-color;
-                }
-            }
-        }
+        // &.col--valid-error {
+        //     .dui-cell--valid {
+        //         width: 320px;
+        //         position: absolute;
+        //         bottom: calc(100% + 4px);
+        //         left: 50%;
+        //         transform: translateX(-50%);
+        //         text-align: center;
+        //         pointer-events: none;
+        //         z-index: 4;
+        //         .dui-cell--valid-msg {
+        //             display: inline-block;
+        //             border-radius: $vxe-border-radius;
+        //             padding: 8px 12px;
+        //             color: $vxe-table-validate-tooltip-error-color;
+        //             background-color: $vxe-table-validate-tooltip-error-background-color;
+        //             pointer-events: auto;
+        //         }
+        //     }
+        //     .dui-default-input,
+        //     .dui-default-textarea,
+        //     .dui-default-select {
+        //         border-color: $vxe-table-validate-error-color;
+        //     }
+        //     .dui-input {
+        //         >.dui-input--inner {
+        //             border-color: $vxe-table-validate-error-color;
+        //         }
+        //     }
+        // }
     }
     .dui-body--row {
         &:first-child {
@@ -1129,44 +1139,44 @@
         }
     }
     /*可编辑*/
-    &.dui-editable {
-        &.cell--highlight {
-            .dui-body--column {
-                &.col--actived {
-                    box-shadow: inset 0px 0px 0px 2px $vxe-primary-color;
-                    &.col--valid-error {
-                        box-shadow: inset 0px 0px 0px 2px $vxe-table-validate-error-color;
-                    }
-                    .dui-cell {
-                        .dui-default-input,
-                        .dui-default-textarea {
-                            border: 0;
-                            padding: 0;
-                        }
-                        .dui-default-input {
-                            height: $vxe-table-row-line-height;
-                        }
-                        .dui-input {
-                            .dui-input--inner {
-                                border: 0;
-                                padding-left: 0;
-                            }
-                        }
-                        .dui-textarea {
-                            height: $vxe-table-row-line-height - 1;
-                            .dui-textarea--inner {
-                                border: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .dui-body--column {
-            padding: 0;
-            &.col--actived {
-                padding: 0;
-            }
-        }
-    }
+    // &.dui-editable {
+    //     &.cell--highlight {
+    //         .dui-body--column {
+    //             &.col--actived {
+    //                 box-shadow: inset 0px 0px 0px 2px $vxe-primary-color;
+    //                 &.col--valid-error {
+    //                     box-shadow: inset 0px 0px 0px 2px $vxe-table-validate-error-color;
+    //                 }
+    //                 .dui-cell {
+    //                     .dui-default-input,
+    //                     .dui-default-textarea {
+    //                         border: 0;
+    //                         padding: 0;
+    //                     }
+    //                     .dui-default-input {
+    //                         height: $vxe-table-row-line-height;
+    //                     }
+    //                     .dui-input {
+    //                         .dui-input--inner {
+    //                             border: 0;
+    //                             padding-left: 0;
+    //                         }
+    //                     }
+    //                     .dui-textarea {
+    //                         height: $vxe-table-row-line-height - 1;
+    //                         .dui-textarea--inner {
+    //                             border: 0;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .dui-body--column {
+    //         padding: 0;
+    //         &.col--actived {
+    //             padding: 0;
+    //         }
+    //     }
+    // }
 }

@@ -42,14 +42,14 @@ $vxe-primary-disabled-color: #c0c4cc !default;
 
 /*input/radio/checkbox*/
 
-$vxe-input-border-color: #dcdfe6 !default;
-$vxe-input-disabled-color: #dcdfe6 !default;
-$vxe-input-disabled-background-color: #f3f3f3 !default;
-$vxe-input-placeholder-color: #C0C4CC !default;
+// $vxe-input-border-color: #dcdfe6 !default;
+// $vxe-input-disabled-color: #dcdfe6 !default;
+// $vxe-input-disabled-background-color: #f3f3f3 !default;
+// $vxe-input-placeholder-color: #C0C4CC !default;
 
 /*popup*/
 
-$vxe-table-popup-border-color: #DADCE0 !default;
+//$vxe-table-popup-border-color: #DADCE0 !default;
 
 /*table*/
 
@@ -118,62 +118,62 @@ $vxe-table-fixed-right-scrolling-box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.12
 
 /*filter*/
 
-$vxe-table-filter-panel-background-color: #fff !default;
+//$vxe-table-filter-panel-background-color: #fff !default;
 
 /*menu*/
 
-$vxe-table-menu-item-width: 178px !default;
-$vxe-table-menu-background-color: #fff !default;
+// $vxe-table-menu-item-width: 178px !default;
+// $vxe-table-menu-background-color: #fff !default;
 
 /*loading*/
 
-$vxe-loading-background-color: rgba(0, 0, 0, 0.2) !default;
-$vxe-loading-z-index: 999 !default;
+// $vxe-loading-background-color: rgba(0, 0, 0, 0.2) !default;
+// $vxe-loading-z-index: 999 !default;
 
 /*validate*/
 
-$vxe-table-validate-error-color: #f56c6c !default;
-$vxe-table-validate-tooltip-error-color: #fff !default;
-$vxe-table-validate-tooltip-error-background-color: $vxe-table-validate-error-color !default;
+// $vxe-table-validate-error-color: #f56c6c !default;
+// $vxe-table-validate-tooltip-error-color: #fff !default;
+// $vxe-table-validate-tooltip-error-background-color: $vxe-table-validate-error-color !default;
 
 /*checkbox*/
 
-$vxe-checkbox-font-size-default: 16px !default;
-$vxe-checkbox-font-size-medium: 15px !default;
-$vxe-checkbox-font-size-small: 14px !default;
-$vxe-checkbox-font-size-mini: 14px !default;
-$vxe-checkbox-checked-width: 0.32em !default;
-$vxe-checkbox-checked-height: 0.64em !default;
-$vxe-checkbox-indeterminate-width: 0.6em !default;
-$vxe-checkbox-indeterminate-height: 2px !default;
-$vxe-checkbox-border-width: 2px !default;
-$vxe-checkbox-border-radius: 2px !default;
-$vxe-checkbox-icon-background-color: #fff !default;
-$vxe-checkbox-checked-icon-border-color: #fff !default;
-$vxe-checkbox-indeterminate-icon-background-color: #fff !default;
+// $vxe-checkbox-font-size-default: 16px !default;
+// $vxe-checkbox-font-size-medium: 15px !default;
+// $vxe-checkbox-font-size-small: 14px !default;
+// $vxe-checkbox-font-size-mini: 14px !default;
+// $vxe-checkbox-checked-width: 0.32em !default;
+// $vxe-checkbox-checked-height: 0.64em !default;
+// $vxe-checkbox-indeterminate-width: 0.6em !default;
+// $vxe-checkbox-indeterminate-height: 2px !default;
+// $vxe-checkbox-border-width: 2px !default;
+// $vxe-checkbox-border-radius: 2px !default;
+// $vxe-checkbox-icon-background-color: #fff !default;
+// $vxe-checkbox-checked-icon-border-color: #fff !default;
+// $vxe-checkbox-indeterminate-icon-background-color: #fff !default;
 
 /*radio*/
 
-$vxe-radio-font-size-default: $vxe-checkbox-font-size-default !default;
-$vxe-radio-font-size-medium: $vxe-checkbox-font-size-medium !default;
-$vxe-radio-font-size-small: $vxe-checkbox-font-size-small !default;
-$vxe-radio-font-size-mini: $vxe-checkbox-font-size-mini !default;
-$vxe-radio-border-width: $vxe-checkbox-border-width !default;
-$vxe-radio-icon-background-color: #fff !default;
-$vxe-radio-checked-icon-background-color: #fff !default;
-$vxe-radio-indeterminate-icon-background-color: #fff !default;
-$vxe-radio-button-default-background-color: #fff !default;
+// $vxe-radio-font-size-default: $vxe-checkbox-font-size-default !default;
+// $vxe-radio-font-size-medium: $vxe-checkbox-font-size-medium !default;
+// $vxe-radio-font-size-small: $vxe-checkbox-font-size-small !default;
+// $vxe-radio-font-size-mini: $vxe-checkbox-font-size-mini !default;
+// $vxe-radio-border-width: $vxe-checkbox-border-width !default;
+// $vxe-radio-icon-background-color: #fff !default;
+// $vxe-radio-checked-icon-background-color: #fff !default;
+// $vxe-radio-indeterminate-icon-background-color: #fff !default;
+// $vxe-radio-button-default-background-color: #fff !default;
 
 /*button*/
 
-$vxe-button-height-default: 34px !default;
-$vxe-button-height-medium: 32px !default;
-$vxe-button-height-small: 30px !default;
-$vxe-button-height-mini: 28px !default;
+// $vxe-button-height-default: 34px !default;
+// $vxe-button-height-medium: 32px !default;
+// $vxe-button-height-small: 30px !default;
+// $vxe-button-height-mini: 28px !default;
 
 /*input*/
 
-$vxe-input-height-default: $vxe-button-height-default !default;
-$vxe-input-height-medium: $vxe-button-height-medium !default;
-$vxe-input-height-small: $vxe-button-height-small !default;
-$vxe-input-height-mini: $vxe-button-height-mini !default;
+// $vxe-input-height-default: $vxe-button-height-default !default;
+// $vxe-input-height-medium: $vxe-button-height-medium !default;
+// $vxe-input-height-small: $vxe-button-height-small !default;
+// $vxe-input-height-mini: $vxe-button-height-mini !default;

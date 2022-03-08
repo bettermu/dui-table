@@ -2,7 +2,7 @@
 <div id="app">
   <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <!-- <dui-table :align="allAlign" :data="tableData">
+  <dui-table :align="allAlign" :data="tableData">
     <dui-table-column type="seq" title="#" width="60"></dui-table-column>
     <dui-table-column field="name" title="Name"></dui-table-column>
     <dui-table-column field="sex" title="Sex"></dui-table-column>
@@ -15,9 +15,9 @@
     <dui-table-column field="sex" title="Sex"></dui-table-column>
     <dui-table-column field="age" title="Age"></dui-table-column>
     <dui-table-column field="address" title="Address"></dui-table-column>
-  </dui-table> -->
+  </dui-table>
 
-  <!-- <dui-table :data="tableData" @checkbox-change="checkboxChangeEvent" @checkbox-all="checkboxAllEvent">
+  <dui-table :data="tableData" @checkbox-change="checkboxChangeEvent" @checkbox-all="checkboxAllEvent">
     <dui-table-column type="seq" width="60"></dui-table-column>
     <dui-table-column type="radio" width="60"></dui-table-column>
     <dui-table-column type="checkbox" width="60"></dui-table-column>
@@ -26,7 +26,7 @@
     <dui-table-column field="sex" title="Sex" :filters="[{value:'0',label:'女'},{value:'1',label:'男'}]"></dui-table-column>
     <dui-table-column field="sex2" title="Sex2" sortable :filters="[{value:'0',label:'女'},{value:'1',label:'男'}]" :filter-multiple="false"></dui-table-column>
     <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
-  </dui-table> -->
+  </dui-table>
 
   <div> 虚拟滚动 </div>
   <dui-table show-overflow ref="xTable1" virtualScrollable="true" height="300" :row-config="{isHover: true}" :sort-config="{trigger: 'cell'}">
@@ -38,14 +38,14 @@
     <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
   </dui-table>
 
-  <!-- <dui-table border ref="xTable2" height="300" :data="tableData" :radio-config="{highlight: true}" @cell-click="cellClickEvent" @radio-change="radioChangeEvent">
+  <dui-table border ref="xTable2" height="300" :data="tableData" :radio-config="{highlight: true}" @cell-click="cellClickEvent" @radio-change="radioChangeEvent">
     <dui-table-column type="radio" width="60"></dui-table-column>
     <dui-table-column field="sex" title="Sex">
       <q-button @click="buttonClick">111</q-button>
     </dui-table-column>
     <dui-table-column field="age" title="Age"></dui-table-column>
     <dui-table-column field="address" title="Address" show-overflow></dui-table-column>
-  </dui-table> -->
+  </dui-table>
 
   
 </div>
